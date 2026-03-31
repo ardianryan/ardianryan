@@ -83,34 +83,6 @@
 
 ---
 
-## 📊 GitHub Analytics
-
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=rifaldo-dev&show_icons=true&theme=vue-dark&hide_border=true&count_private=true&cache_seconds=86400" alt="GitHub Stats" width="48%"/>
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=rifaldo-dev&layout=compact&theme=vue-dark&hide_border=true&cache_seconds=86400" alt="Top Languages" width="48%"/>
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rifaldo-dev&theme=vue-dark&hide_border=false" alt="GitHub Streak" width="70%"/>
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rifaldo-dev&theme=vue&hide_border=true&area=true" alt="Contribution Graph"/>
-</div>
-
-<br>
-
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=rifaldo-dev&theme=vue" alt="Repos per Language" width="48%"/>
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=rifaldo-dev&theme=vue" alt="Most Commit Language" width="48%"/>
-</div>
-
----
-
 <div align="center">
 
 **"Code is like humor. When you have to explain it, it's bad."** – Cory House
