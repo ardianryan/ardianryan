@@ -5,9 +5,9 @@
 <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=0E75B6&center=true&vCenter=true&width=600&lines=Software+Developer+%26+Technical+Writer;Linux+System+Administrator;Open+Source+Contributor;Always+Learning+New+Technologies" alt="Typing SVG" />
 
 <p>
-  <img src="https://komarev.com/ghpvc/?username=Rifaldo-dev&label=Profile%20Views&color=0E75B6&style=flat"/>
-  <img src="https://img.shields.io/github/followers/Rifaldo-dev?label=Followers&style=flat&color=0E75B6"/>
-  <img src="https://img.shields.io/github/stars/Rifaldo-dev?label=Stars&style=flat&color=0E75B6"/>
+  <img src="https://komarev.com/ghpvc/?username=ardianryan&label=Profile%20Views&color=0E75B6&style=flat"/>
+  <img src="https://img.shields.io/github/followers/ardianryan?label=Followers&style=flat&color=0E75B6"/>
+  <img src="https://img.shields.io/github/stars/ardianryan?label=Stars&style=flat&color=0E75B6"/>
 </p>
 
 </div>
