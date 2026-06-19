@@ -26,7 +26,7 @@
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=ardianryan&layout=compact&theme=dark&hide_border=true&langs_count=5" alt="Top Languages" width="48%" />
-  <img src="https://streak-stats.demolab.com/?user=ardianryan" alt="GitHub Streak" width="48%" />
+  <img src="https://streak-stats.demolab.com/?user=ardianryan&theme=dark&hide_border=true" alt="GitHub Streak" width="48%" />
 </div>
 
 ---
