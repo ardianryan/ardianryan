@@ -16,9 +16,9 @@
 ## 🌐 About Me
 
 * 💼 IT Technician & Network Engineer at **PPTI**
-* 🌍 Website Utama: [ardianryan.com](https://ardianryan.com)
-* 🛠️ Website Development: [ppti.me](https://ppti.me)
-* 📧 Email Resmi: [inisaya@ardianryan.com](mailto:inisaya@ardianryan.com)
+* 🌍 Main Website: [ardianryan.com](https://ardianryan.com)
+* 🛠️ Dev Site: [ppti.me](https://ppti.me)
+* 📧 Official Email: [inisaya@ardianryan.com](mailto:inisaya@ardianryan.com)
 
 ---
 
@@ -74,7 +74,89 @@
 
 ---
 
+## 🚀 Featured Projects
+
+> These projects are actively maintained — some are private repos, but listed here to showcase my work.
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🏫 AKAS v2 — Academic Security System</h3>
+      <p>A school discipline & academic monitoring platform. Migrated from PHP Native monolith to a modern <strong>Laravel + React (Inertia.js)</strong> SPA architecture with shadcn/ui components, Google OAuth SSO, Cloudflare R2 storage, and PWA support.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+        <img src="https://img.shields.io/badge/Inertia.js-9553E9?style=flat-square&logo=inertia&logoColor=white"/>
+        <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🌐 PPTI.me — IT Development Portal</h3>
+      <p>Official development and internal tools portal for PPTI. Hosts various internal web services, network monitoring dashboards, and administrative utilities for the organization.</p>
+      <p>
+        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Live at <a href="https://ppti.me">ppti.me</a></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🔥 Hotspot Management System</h3>
+      <p>A captive portal and hotspot management system built for MikroTik environments. Features user session management, bandwidth monitoring, and voucher generation for public WiFi deployments.</p>
+      <p>
+        <img src="https://img.shields.io/badge/MikroTik-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
+        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/>
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Deployed</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>📊 ScholarGate CMS</h3>
+      <p>A content management system for student academic achievements and scholarship data. Provides structured data entry, reporting, and review workflows for school administration staff.</p>
+      <p>
+        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+        <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <h3>🔐 Simple Google Auth (simple-gauth)</h3>
+      <p>A lightweight Google OAuth 2.0 authentication library/boilerplate. Simplifies integrating Google Sign-In into web projects with minimal configuration.</p>
+      <p>
+        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
+        <img src="https://img.shields.io/badge/OAuth2-4285F4?style=flat-square&logo=google&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Utility Library</p>
+    </td>
+    <td width="50%" valign="top">
+      <h3>🌍 MikroTik Network Projects</h3>
+      <p>A collection of MikroTik RouterOS scripts, configurations, and automation tools. Covers VLAN management, QoS policies, dynamic routing, VPN setup, and Winbox automation scripts.</p>
+      <p>
+        <img src="https://img.shields.io/badge/MikroTik-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
+        <img src="https://img.shields.io/badge/RouterOS-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
+      </p>
+      <p><strong>Status:</strong> 🔒 Private · Scripts Collection</p>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## 🌐 Let's Connect
+
 
 <div align="center">
 
