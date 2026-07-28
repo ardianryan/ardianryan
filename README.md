@@ -93,28 +93,30 @@
       <p><strong>Status:</strong> 🔒 Private · Active Development</p>
     </td>
     <td width="50%" valign="top">
-      <h3>🌐 PPTI.me — IT Development Portal</h3>
-      <p>Official development and internal tools portal for PPTI. Hosts various internal web services, network monitoring dashboards, and administrative utilities for the organization.</p>
+      <h3>🍢 Satenya Mama Loesye — POS & Management System</h3>
+      <p>A modern Point of Sales & catering management system with a bold neobrutalist UI. Features Kitchen Display System, dynamic QRIS payment, WhatsApp OTP login, advanced catering builder, promo/coupon engine, and multi-address delivery management.</p>
       <p>
-        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+        <img src="https://img.shields.io/badge/Hono.js-E36002?style=flat-square&logo=hono&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Prisma-5A67D8?style=flat-square&logo=prisma&logoColor=white"/>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Live at <a href="https://ppti.me">ppti.me</a></p>
+      <p><strong>Status:</strong> 🌐 Live at <a href="https://satenyamamaloesye.ppti.me">satenyamamaloesye.ppti.me</a></p>
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>🔥 Hotspot Management System</h3>
-      <p>A captive portal and hotspot management system built for MikroTik environments. Features user session management, bandwidth monitoring, and voucher generation for public WiFi deployments.</p>
+      <h3>🎓 ScholarGate SSO — School Portal & CMS</h3>
+      <p>A school education portal with a full Admin CMS, shared-hosting friendly deployment, and a cheerful bento-grid public UI. Features Google OAuth SSO, Cloudflare R2 media storage, SEO-ready sitemap, and multi-database support (PostgreSQL, MySQL, MariaDB).</p>
       <p>
-        <img src="https://img.shields.io/badge/MikroTik-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
-        <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/>
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+        <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Cloudflare_R2-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
+        <img src="https://img.shields.io/badge/OAuth2-4285F4?style=flat-square&logo=google&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Deployed</p>
+      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
     </td>
     <td width="50%" valign="top">
       <h3>📊 ScholarGate CMS</h3>
@@ -130,14 +132,16 @@
   </tr>
   <tr>
     <td width="50%" valign="top">
-      <h3>🔐 Simple Google Auth (simple-gauth)</h3>
-      <p>A lightweight Google OAuth 2.0 authentication library/boilerplate. Simplifies integrating Google Sign-In into web projects with minimal configuration.</p>
+      <h3>📋 SIEKSA V3 — School Extracurricular System</h3>
+      <p>A web-based extracurricular management platform for schools — handles member management, attendance journals, achievement tracking, and student performance scoring. Integrates with ScholarGate SSO and supports external API for third-party systems.</p>
       <p>
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black"/>
-        <img src="https://img.shields.io/badge/OAuth2-4285F4?style=flat-square&logo=google&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white"/>
+        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
+        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Hono.js-E36002?style=flat-square&logo=hono&logoColor=white"/>
+        <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white"/>
+        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Utility Library</p>
+      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
     </td>
     <td width="50%" valign="top">
       <h3>🌍 MikroTik Network Projects</h3>
