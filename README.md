@@ -26,7 +26,7 @@
 
 <div align="center">
   <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ardianryan&theme=dracula" alt="Top Languages by Commit" width="48%" />
-  <img src="https://streak-stats.demolab.com/?user=ardianryan&theme=dark&hide_border=true" alt="GitHub Streak" width="48%" />
+  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&theme=git-dark&short_numbers=true&date_format=j%2Fn%5B%2FY%5D&exclude_days=Sun" alt="GitHub Streak" width="48%" /></a>
 </div>
 
 <div align="center">
