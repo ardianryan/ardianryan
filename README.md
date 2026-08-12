@@ -27,15 +27,38 @@
 
 ## 📊 Statistics & Language Summary
 
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=ardianryan&theme=dracula" alt="Top Languages by Commit" width="48%" />
-  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&theme=tokyonight&short_numbers=true&date_format=j%2Fn%5B%2FY%5D&exclude_days=Sun%2CSat" alt="GitHub Streak" width="48%" /></a>
-</div>
+<p align="center">
+  <img src="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora" width="100%" alt="Technology stack for Ardian Ryan" />
+</p>
 
-<div align="center">
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=ardianryan&theme=dracula" alt="Repos Per Language" width="48%" />
-  <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=ardianryan&theme=dracula" alt="Stats" width="48%" />
-</div>
+<p align="center">
+  <img src="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora" width="100%" alt="GitHub activity stats for Ardian Ryan" />
+</p>
+
+<p align="center">
+  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&theme=tokyonight&short_numbers=true&date_format=j%2Fn%5B%2FY%5D&exclude_days=Sun%2CSat" alt="GitHub Streak" width="60%" /></a>
+</p>
+
+---
+
+## 🎯 Current Focus
+
+<p align="center">
+  <img src="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" width="100%" alt="Current focus areas for Ardian Ryan" />
+</p>
+
+
+---
+
+## 🐍 A Profile That Moves
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/output/github-snake.svg" />
+    <img alt="github-snake" src="https://raw.githubusercontent.com/ardianryan/ardianryan/output/github-snake-dark.svg" width="100%" />
+  </picture>
+</p>
 
 ---
 
