@@ -1,15 +1,18 @@
-<h1 align="center"><div align="center">
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=light" />
+    <img src="https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="Animated profile hero for Ardian Ryan" />
+  </picture>
+</p>
 
-# Hi, I'm Ardian Ryan 👋
+<p align="center">
+  <img src="https://www.gitskins.com/api/section/wordmark?username=ardianryan&theme=aurora&label=Ardian%20Ryan" width="100%" alt="Animated 3D wordmark for Ardian Ryan" />
+</p>
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=F38020&center=true&vCenter=true&width=650&lines=Network+Engineer+%26+IT+Technician;MikroTik+Certified+Professional;Web+Developer+%26+Linux+Sysadmin" alt="Typing SVG" />
-
-<p>
+<p align="center">
   <img src="https://komarev.com/ghpvc/?username=ardianryan&label=Profile%20Views&color=F38020&style=flat-square"/>
   <img src="https://img.shields.io/github/followers/ardianryan?label=Followers&style=flat-square&color=F38020"/>
 </p>
-
-</div>
 
 ---
 
