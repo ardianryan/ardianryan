@@ -50,7 +50,10 @@
 ## 🎯 Current Focus
 
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" width="100%" alt="Current focus areas for Ardian Ryan" />
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=light&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" />
+    <img src="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=dark&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" width="100%" alt="Current focus areas for Ardian Ryan" />
+  </picture>
 </p>
 
 
