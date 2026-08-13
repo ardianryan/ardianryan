@@ -28,15 +28,21 @@
 ## 📊 Statistics & Language Summary
 
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora" width="100%" alt="Technology stack for Ardian Ryan" />
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=light" />
+    <img src="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="Technology stack for Ardian Ryan" />
+  </picture>
 </p>
 
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora" width="100%" alt="GitHub activity stats for Ardian Ryan" />
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=light" />
+    <img src="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="GitHub activity stats for Ardian Ryan" />
+  </picture>
 </p>
 
 <p align="center">
-  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&theme=tokyonight&short_numbers=true&date_format=j%2Fn%5B%2FY%5D&exclude_days=Sun%2CSat" alt="GitHub Streak" width="60%" /></a>
+  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&theme=tokyonight&short_numbers=true&date_format=j%2Fn%5B%2FY%5D" alt="GitHub Streak" width="60%" /></a>
 </p>
 
 ---
