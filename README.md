@@ -42,7 +42,12 @@
 </p>
 
 <p align="center">
-  <a href="https://git.io/streak-stats"><img src="https://streak-stats.demolab.com?user=ardianryan&amp;theme=tokyonight&amp;short_numbers=true&amp;date_format=j%2Fn%5B%2FY%5D" alt="GitHub Streak" width="60%" /></a>
+  <a href="https://git.io/streak-stats">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/output/profile-streak-light.svg" />
+      <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/output/profile-streak-dark.svg" alt="GitHub Streak" width="60%" />
+    </picture>
+  </a>
 </p>
 
 ---
