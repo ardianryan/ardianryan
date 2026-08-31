@@ -6,6 +6,7 @@ import serverEntry from '../dist/server/server.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const clientDir = path.resolve(__dirname, '../dist/client')
+const publicDir = path.resolve(__dirname, '../public')
 const PORT = parseInt(process.env.PORT || '3000', 10)
 const HOST = process.env.HOST || '0.0.0.0'
 
@@ -15,6 +16,7 @@ const MIME_TYPES = {
   '.mjs': 'application/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  '.xml': 'application/xml; charset=utf-8',
   '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
@@ -39,8 +41,12 @@ const server = http.createServer(async (req, res) => {
     const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost:3000'}`)
     let reqPath = decodeURIComponent(url.pathname)
 
-    // 1. Static Asset Serving from dist/client
-    const filePath = path.join(clientDir, reqPath)
+    // 1. Static Asset Serving from dist/client or public
+    let filePath = path.join(clientDir, reqPath)
+    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
+      filePath = path.join(publicDir, reqPath)
+    }
+
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
       const mime = getMimeType(filePath)
       res.setHeader('Content-Type', mime)
