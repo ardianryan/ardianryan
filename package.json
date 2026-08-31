@@ -9,6 +9,7 @@
     "dev": "vite dev --port 3000",
     "generate-routes": "tsr generate",
     "build": "vite build",
+    "start": "node scripts/node-server.mjs",
     "preview": "vite preview",
     "db:reset": "node --env-file=.env scripts/reset-db.mjs",
     "deploy": "node scripts/deploy.mjs",

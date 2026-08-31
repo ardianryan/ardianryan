@@ -1,0 +1,39 @@
+name: Create GitHub Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          generate_release_notes: true
+          body: |
+            ## 🚀 What's New in ${{ github.ref_name }}
+
+            - **Production Docker Image (GHCR):** `ghcr.io/${{ github.repository }}:${{ github.ref_name }}`
+            - **Latest Image:** `ghcr.io/${{ github.repository }}:latest`
+            - **Platform:** `linux/amd64`, `linux/arm64` (Node.js 22 Alpine SSR)
+
+            ### 🐳 Quick Pull & Run:
+            ```bash
+            docker pull ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            docker run -d -p 3000:3000 --env-file .env --name portfolio ghcr.io/${{ github.repository }}:${{ github.ref_name }}
+            ```
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
