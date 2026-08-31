@@ -3,6 +3,7 @@ import path from 'path'
 import pg from 'pg'
 import mysql from 'mysql2/promise'
 import nodeCrypto from 'crypto'
+import defaultSeedData from './db.json'
 
 // Data models
 export interface Screenshot {
@@ -115,21 +116,34 @@ export interface DatabaseProvider {
   saveProfile(profile: ProfileData): Promise<void>
 }
 
-// Fallback JSON data reader and writer
+// Fallback JSON data reader and writer (Edge & Serverless Safe)
 async function readJsonDb(): Promise<PortfolioData> {
-  const filePath = path.join(process.cwd(), 'src/data/db.json')
-  const rawData = await fs.readFile(filePath, 'utf-8')
-  return JSON.parse(rawData) as PortfolioData
+  try {
+    if (typeof process !== 'undefined' && typeof process.cwd === 'function') {
+      const filePath = path.join(process.cwd(), 'src/data/db.json')
+      const rawData = await fs.readFile(filePath, 'utf-8')
+      return JSON.parse(rawData) as PortfolioData
+    }
+  } catch {
+    // In-memory bundled fallback for serverless / edge (Cloudflare Workers)
+  }
+  return JSON.parse(JSON.stringify(defaultSeedData)) as PortfolioData
 }
 
 async function writeJsonDb(data: PortfolioData): Promise<void> {
-  const filePath = path.join(process.cwd(), 'src/data/db.json')
-  const cleanData = {
-    profile: data.profile,
-    projects: data.projects,
-    networkNodes: data.networkNodes,
+  try {
+    if (typeof process !== 'undefined' && typeof process.cwd === 'function') {
+      const filePath = path.join(process.cwd(), 'src/data/db.json')
+      const cleanData = {
+        profile: data.profile,
+        projects: data.projects,
+        networkNodes: data.networkNodes,
+      }
+      await fs.writeFile(filePath, JSON.stringify(cleanData, null, 2), 'utf-8')
+    }
+  } catch (err) {
+    console.warn('[JsonProvider] writeJsonDb skipped in serverless environment:', (err as Error).message)
   }
-  await fs.writeFile(filePath, JSON.stringify(cleanData, null, 2), 'utf-8')
 }
 
 // 1. JSON Local Provider

@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "ardianryan-portfolio",
+  "name": "ardianryan",
   "main": "./dist/server/server.js",
   "compatibility_date": "2026-08-01",
   "compatibility_flags": [
@@ -14,7 +14,7 @@
   },
   "env": {
     "production": {
-      "name": "ardianryan-portfolio",
+      "name": "ardianryan",
       "routes": [
         {
           "pattern": "ardianryan.com/*",
