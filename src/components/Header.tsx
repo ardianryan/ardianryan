@@ -6,9 +6,8 @@ export default function Header() {
     <header className="nav-bar">
       <Link
         to="/"
-        className="stroke-text"
+        className="stroke-text logo-text"
         style={{
-          fontSize: '1.5rem',
           textDecoration: 'none',
           letterSpacing: '-0.05em',
         }}
@@ -16,14 +15,15 @@ export default function Header() {
         ARDIAN RYAN
       </Link>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        <nav style={{ display: 'flex', gap: '16px', fontWeight: 'bold' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <nav style={{ display: 'flex', gap: '6px', fontWeight: 'bold' }}>
           <Link
             to="/"
+            className="nav-link"
             style={{
               textDecoration: 'none',
               color: 'var(--black)',
-              padding: '6px 12px',
+              padding: '6px 10px',
               border: '2px solid transparent',
               borderRadius: '6px',
             }}
@@ -39,10 +39,11 @@ export default function Header() {
           </Link>
           <Link
             to="/about"
+            className="nav-link"
             style={{
               textDecoration: 'none',
               color: 'var(--black)',
-              padding: '6px 12px',
+              padding: '6px 10px',
               border: '2px solid transparent',
               borderRadius: '6px',
             }}
@@ -57,6 +58,22 @@ export default function Header() {
           >
             About
           </Link>
+          <a
+            href="mailto:me@ardianryan.com"
+            className="nav-link"
+            style={{
+              textDecoration: 'none',
+              color: 'var(--black)',
+              padding: '6px 12px',
+              border: '2px solid var(--black)',
+              borderRadius: '6px',
+              background: 'var(--lime)',
+              boxShadow: '2px 2px 0px var(--black)',
+              fontSize: '0.9rem',
+            }}
+          >
+            Contact
+          </a>
         </nav>
 
         <ThemeToggle />

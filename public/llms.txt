@@ -1,0 +1,72 @@
+# Ryan Ardian
+
+> Fullstack Software Engineer & DevOps / Network Specialist
+
+## Summary
+I am a Fullstack Software Engineer, DevOps Engineer, and Network Infrastructure Specialist with extensive experience designing, developing, and deploying mission-critical systems across software, virtualization, and networking layers.
+
+My engineering focus centers on high-throughput backend architectures with Laravel and Hono.js, reactive frontends using React and TypeScript, and enterprise-grade infrastructure. On the DevOps & server orchestration side, I specialize in bare-metal and cloud virtualization using Proxmox VE and VMware ESXi, Docker containerization, VPS fleet management, Linux server hardening, and Cloudflare edge services (R2, Hyperdrive, Turnstile, Tunnels).
+
+In addition to building scalable web applications and POS platforms, I actively serve as an Informatics Educator at SMA Negeri 1 Gedeg, mentoring the next generation in computer science, DevOps workflows, and hands-on MikroTik & virtualization lab environments.
+
+## Core Expertise & Skills
+- Laravel 11
+- React SPA
+- Inertia.js
+- TailwindCSS
+- Cloudflare R2
+- React
+- Hono.js
+- Prisma ORM
+- TypeScript
+- Docker
+- Laravel
+- PostgreSQL
+- OAuth2
+
+## Featured Projects & Case Studies
+### AKAS V2 - Academic Security System (2026)
+- **Category:** Academic Security App
+- **Status:** Private - Active Development
+- **Tech:** Laravel 11, React SPA, Inertia.js, TailwindCSS, Cloudflare R2
+- **Description:** A comprehensive school discipline & academic monitoring platform. Migrated from legacy PHP Native monolith to modern Laravel API + React SPA architecture with Google OAuth, Cloudflare R2, and Progressive Web App support.
+- **Source Code:** https://github.com/ardianryan
+- **Case Study Page:** https://ardianryan.com/projects/akas
+
+### Satenya Mama Loesye - POS & Management System (2026)
+- **Category:** POS & Catering System
+- **Status:** Live
+- **Tech:** React, Hono.js, Prisma ORM, TypeScript, Docker
+- **Description:** Point of Sales & catering management system with a bold neobrutalist UI. Features Kitchen Display System synchronization, dynamic QRIS generation, WhatsApp OTP authentication, and delivery radius validation.
+- **Live App:** https://satenyamamaloesye.ppti.me
+- **Source Code:** https://github.com/ardianryan
+- **Case Study Page:** https://ardianryan.com/projects/satenya
+
+### ScholarGate SSO - Portal & CMS (2026)
+- **Category:** SSO & School CMS
+- **Status:** Private - Active
+- **Tech:** Laravel, React, PostgreSQL, Cloudflare R2, OAuth2
+- **Description:** Central school education portal and CMS designed for shared-hosting or VPS. Supports Google OAuth SSO, portable JSON data backups, and multi-database configurations.
+- **Source Code:** https://github.com/ardianryan
+- **Case Study Page:** https://ardianryan.com/projects/scholargate
+
+### SIEKSA V3 - School Extracurricular System (2026)
+- **Category:** Extracurricular Panel
+- **Status:** Private - Active
+- **Tech:** React, TypeScript, Hono.js, PostgreSQL, Docker
+- **Description:** Web-based extracurricular administrative panel managing student directories, meeting logs, performance metrics, and automated achievement verification.
+- **Source Code:** https://github.com/ardianryan
+- **Case Study Page:** https://ardianryan.com/projects/sieksa
+
+## Network Infrastructure & Labs
+- **Cloud Services**: Edge networks, global DNS routing, and secure object storage for project assets. (Cloudflare R2, Cloudflare DNS, WAF)
+- **MikroTik RouterOS**: Core routing, firewall rules, user session management, and traffic queueing policies. (VLANs, QoS Bandwidth Mgmt, WireGuard VPN)
+- **Managed Switch**: Local ethernet aggregation segmenting server VLANs from client networks. (L2/L3 Switching, Trunk Ports, Network Isolation)
+- **Application Server**: Hosting web services like AKAS v2, ScholarGate SSO, and Satenya Mama Loesye. (Laravel 11+, React SPA, Hono.js POS, Docker)
+- **Database Node**: Structured storage nodes for school achievements, POS transactions, and user credentials. (PostgreSQL, MySQL, Prisma ORM)
+- **Client Stations**: End-user devices accessing school systems and POS cashier clients. (WiFi Captive Portal, POS Terminals, PWA Devices)
+
+## Contact & Links
+- Website: https://ardianryan.com
+- Case Studies: https://ardianryan.com/projects
+- Full LLM Documentation: https://ardianryan.com/llms-full.txt

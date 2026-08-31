@@ -7,6 +7,15 @@
   --paper: #f5f5f0;
   --ink: #1a1a1a;
   --white: #ffffff;
+
+  --bg-primary: #98ff1a;
+  --bg-grid: rgba(0, 0, 0, 0.05);
+  --card-bg: #ffffff;
+  --card-border: #0c0c0c;
+  --card-shadow: #0c0c0c;
+  --text-main: #0c0c0c;
+  --text-muted: #555555;
+  --badge-bg: #ffffff;
   
   --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --font-display: 'Archivo Black', impact, sans-serif;
@@ -21,102 +30,88 @@
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--lime);
+  background-color: var(--bg-primary);
   background-image: 
-    linear-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 2px, transparent 2px);
+    linear-gradient(var(--bg-grid) 2px, transparent 2px),
+    linear-gradient(90deg, var(--bg-grid) 2px, transparent 2px);
   background-size: 32px 32px;
   background-position: -2px -2px;
-  color: var(--black);
+  color: var(--text-main);
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-}
-
-/* Crinkled Paper Filter Utility */
-.paper-filter {
-  filter: url(#paper-texture);
-}
-
-/* Halftone Pattern background */
-.halftone-pink {
-  background-color: var(--pink);
-  background-image: radial-gradient(var(--black) 15%, transparent 16%);
-  background-size: 16px 16px;
-  background-position: 0 0;
-}
-
-.halftone-lime {
-  background-color: var(--lime);
-  background-image: radial-gradient(var(--black) 15%, transparent 16%);
-  background-size: 16px 16px;
-  background-position: 0 0;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 /* Neo-Brutalism Stickers & Cards */
 .sticker {
-  background: var(--white);
-  border: 4px solid var(--black);
-  border-radius: 12px;
+  background: var(--card-bg);
+  border: 3px solid var(--card-border);
+  border-radius: 14px;
   padding: 24px;
-  box-shadow: 8px 8px 0px var(--black);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 6px 6px 0px var(--card-shadow);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.2s ease;
   position: relative;
+  color: var(--text-main);
 }
 
 .sticker:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0px var(--black);
+  box-shadow: 8px 8px 0px var(--card-shadow);
 }
 
-/* Sticker buttons */
+/* Sticker buttons - Guaranteed High Contrast Hover */
 .sticker-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: var(--yellow);
-  color: var(--black);
+  color: #0c0c0c !important;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1rem;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 12px 28px;
-  border: 4px solid var(--black);
+  padding: 10px 24px;
+  border: 3px solid var(--card-border);
   border-radius: 50px;
-  box-shadow: 4px 4px 0px var(--black);
+  box-shadow: 4px 4px 0px var(--card-shadow);
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.12s ease;
+  user-select: none;
 }
 
+/* Universal Hover Fix: Always Crisp Pink Background with Pure White Text */
 .sticker-btn:hover {
   transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--black);
-  background: var(--pink);
-  color: var(--white);
+  box-shadow: 5px 5px 0px var(--card-shadow) !important;
+  background: var(--pink) !important;
+  color: #ffffff !important;
 }
 
 .sticker-btn:active {
   transform: translate(2px, 2px);
-  box-shadow: 2px 2px 0px var(--black);
+  box-shadow: 2px 2px 0px var(--card-shadow) !important;
 }
 
 .sticker-btn-pink {
   background: var(--pink);
-  color: var(--white);
+  color: #ffffff !important;
 }
 
 .sticker-btn-pink:hover {
-  background: var(--yellow);
-  color: var(--black);
+  background: var(--yellow) !important;
+  color: #0c0c0c !important;
 }
 
-/* Paper notes / Cutouts (like in the second reference image) */
+/* Paper notes / Cutouts */
 .paper-note {
   background: var(--paper);
-  border: 3px dashed var(--black);
+  border: 2px dashed var(--card-border);
+  border-radius: 12px;
   padding: 20px;
-  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.15);
-  transform: rotate(-1deg);
+  box-shadow: 4px 4px 0px var(--card-shadow);
+  color: var(--text-main);
+  transition: all 0.2s ease;
 }
 
 .paper-note-pink {
@@ -127,33 +122,57 @@ body {
 /* Bold text stroke for display titles */
 .stroke-text {
   font-family: var(--font-display);
-  -webkit-text-stroke: 2px var(--black);
-  color: var(--white);
-  text-shadow: 4px 4px 0px var(--black);
+  -webkit-text-stroke: 2px var(--card-border);
+  color: #ffffff;
+  text-shadow: 4px 4px 0px var(--card-shadow);
 }
 
 .stroke-text-pink {
-  -webkit-text-stroke: 2px var(--black);
+  font-family: var(--font-display);
+  -webkit-text-stroke: 2px var(--card-border);
   color: var(--pink);
-  text-shadow: 4px 4px 0px var(--black);
+  text-shadow: 4px 4px 0px var(--card-shadow);
 }
 
-/* Sticker outline filter (makes any element look like a cut sticker with white border) */
+/* Responsive Hero Titles */
+.hero-title {
+  font-size: clamp(2.2rem, 10.5vw, 4.5rem);
+  line-height: 1.05;
+  margin-bottom: 8px;
+  transform: rotate(-2deg);
+  word-break: break-word;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.15rem, 5.2vw, 2.5rem);
+  line-height: 1.15;
+  margin-bottom: 16px;
+  transform: rotate(1deg);
+  word-break: break-word;
+}
+
+.logo-text {
+  font-size: clamp(1.1rem, 4vw, 1.5rem);
+}
+
+/* Sticker outline filter */
 .sticker-outline {
-  filter: drop-shadow(4px 4px 0px var(--black)) drop-shadow(-2px -2px 0px var(--white)) drop-shadow(2px -2px 0px var(--white)) drop-shadow(-2px 2px 0px var(--white)) drop-shadow(2px 2px 0px var(--white));
+  filter: drop-shadow(3px 3px 0px var(--card-shadow)) drop-shadow(-2px -2px 0px #ffffff) drop-shadow(2px -2px 0px #ffffff) drop-shadow(-2px 2px 0px #ffffff) drop-shadow(2px 2px 0px #ffffff);
 }
 
 /* Header & Nav */
 .nav-bar {
-  background: var(--white);
-  border-bottom: 4px solid var(--black);
+  background: var(--card-bg);
+  border-bottom: 3px solid var(--card-border);
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 16px 32px;
+  padding: 14px 28px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s ease;
 }
 
 /* Page container */
@@ -172,12 +191,38 @@ body {
 
 .col-12 { grid-column: span 12; }
 .col-8 { grid-column: span 8; }
+.col-7 { grid-column: span 7; }
 .col-6 { grid-column: span 6; }
+.col-5 { grid-column: span 5; }
 .col-4 { grid-column: span 4; }
 
 @media (max-width: 900px) {
-  .col-8, .col-6, .col-4 {
+  .col-8, .col-7, .col-6, .col-5, .col-4 {
     grid-column: span 12;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-bar {
+    padding: 10px 12px;
+  }
+  .nav-link {
+    padding: 4px 6px !important;
+    font-size: 0.82rem !important;
+  }
+  .container {
+    padding: 24px 12px;
+  }
+  .sticker {
+    padding: 16px;
+    box-shadow: 4px 4px 0px var(--card-shadow);
+  }
+  .bento-grid {
+    gap: 16px;
+  }
+  .stroke-text, .stroke-text-pink {
+    text-shadow: 2.5px 2.5px 0px var(--card-shadow);
+    -webkit-text-stroke: 1.5px var(--card-border);
   }
 }
 
@@ -187,6 +232,13 @@ body {
   z-index: 10;
   cursor: grab;
   user-select: none;
+  transform: translate(var(--px-offset-x, 0px), var(--px-offset-y, 0px));
+  transition: transform 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-parallax-depth] {
+  transform: translate(var(--px-offset-x, 0px), var(--px-offset-y, 0px));
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .floating-sticker:active {
@@ -216,6 +268,147 @@ body {
   }
 }
 
+/* ========================================================================= */
+/* SMOOTH ENTRANCE ANIMATIONS & PARALLAX MOTION SYSTEM                      */
+/* ========================================================================= */
+
+@keyframes smoothFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes smoothFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px);
+  }
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(calc(var(--rot, 0deg) + 1.2deg));
+  }
+}
+
+@keyframes floatBobReverse {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateY(7px) rotate(calc(var(--rot, 0deg) - 1.2deg));
+  }
+}
+
+@keyframes floatSway {
+  0%, 100% {
+    transform: translateX(0px) rotate(var(--rot, 0deg));
+  }
+  50% {
+    transform: translateX(6px) rotate(calc(var(--rot, 0deg) + 2deg));
+  }
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    transform: scale(1) rotate(-3deg);
+  }
+  50% {
+    transform: scale(1.04) rotate(-3deg);
+  }
+}
+
+/* Staggered Animation utility classes */
+.anim-fade-up {
+  animation: smoothFadeUp 0.65s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+.anim-fade-in {
+  animation: smoothFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: filter, opacity;
+}
+
+.anim-delay-1 { animation-delay: 0.08s; }
+.anim-delay-2 { animation-delay: 0.16s; }
+.anim-delay-3 { animation-delay: 0.24s; }
+.anim-delay-4 { animation-delay: 0.32s; }
+.anim-delay-5 { animation-delay: 0.40s; }
+
+/* Continuous Parallax Floating Classes */
+.parallax-float {
+  animation: floatBob 5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.parallax-float-reverse {
+  animation: floatBobReverse 6s ease-in-out infinite;
+  will-change: transform;
+}
+
+.parallax-float-fast {
+  animation: floatBob 3.8s ease-in-out infinite;
+  will-change: transform;
+}
+
+.parallax-float-slow {
+  animation: floatBob 7.5s ease-in-out infinite;
+  will-change: transform;
+}
+
+.pulse-badge {
+  animation: gentlePulse 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Smooth Scroll-Triggered Reveal System */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.985);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.scroll-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Global 2.5D Parallax Motion Engine (Zero Hydration Mismatch) */
+:root {
+  --mouse-px-x: 0px;
+  --mouse-px-y: 0px;
+}
+
+[data-parallax-depth] {
+  --px-d: 1;
+  translate: calc(var(--mouse-px-x, 0px) * var(--px-d, 1)) calc(var(--mouse-px-y, 0px) * var(--px-d, 1));
+}
+
+[data-parallax-depth="0.2"] { --px-d: 0.2; }
+[data-parallax-depth="0.3"] { --px-d: 0.3; }
+[data-parallax-depth="0.4"] { --px-d: 0.4; }
+[data-parallax-depth="0.5"] { --px-d: 0.5; }
+[data-parallax-depth="0.6"] { --px-d: 0.6; }
+[data-parallax-depth="0.8"] { --px-d: 0.8; }
+[data-parallax-depth="1.0"] { --px-d: 1.0; }
+[data-parallax-depth="1.2"] { --px-d: 1.2; }
+[data-parallax-depth="1.5"] { --px-d: 1.5; }
+[data-parallax-depth="1.8"] { --px-d: 1.8; }
+[data-parallax-depth="2.0"] { --px-d: 2.0; }
+
 /* Rotating animations */
 @keyframes spin {
   from { transform: rotate(0deg); }
@@ -229,14 +422,16 @@ body {
 /* Contact Card Badge */
 .open-badge {
   background: #00FF66;
-  border: 2px solid var(--black);
+  color: #0c0c0c !important;
+  border: 2px solid var(--card-border);
   border-radius: 4px;
   padding: 4px 8px;
   font-family: var(--font-display);
   font-size: 0.8rem;
   display: inline-block;
   transform: rotate(-3deg);
-  box-shadow: 2px 2px 0px var(--black);
+  box-shadow: 2px 2px 0px var(--card-shadow);
+  font-weight: bold;
 }
 
 /* Table of Contents Container */
@@ -247,14 +442,15 @@ body {
   justify-content: center;
   align-items: center;
   margin: 60px auto;
-  border: 4px solid var(--black);
-  background: var(--white);
+  border: 3px solid var(--card-border);
+  background: var(--card-bg);
   background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
   background-size: 16px 16px;
   border-radius: 16px;
   padding: 40px;
-  box-shadow: 8px 8px 0px var(--black);
+  box-shadow: 6px 6px 0px var(--card-shadow);
   overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 @media (max-width: 768px) {
@@ -269,13 +465,13 @@ body {
 /* TOC Center sticker */
 .toc-center-title {
   background-color: var(--lime);
-  border: 6px solid var(--black);
+  border: 4px solid var(--card-border);
   padding: 16px 36px;
   font-family: var(--font-display);
   font-size: 2.2rem;
-  color: var(--black);
+  color: #0c0c0c;
   transform: rotate(-2deg);
-  box-shadow: 6px 6px 0px var(--black);
+  box-shadow: 5px 5px 0px var(--card-shadow);
   user-select: none;
   z-index: 2;
   text-align: center;
@@ -291,30 +487,30 @@ body {
 
 /* TOC Stickers */
 .toc-sticker {
-  border: 4px solid var(--black);
+  border: 3px solid var(--card-border);
   border-radius: 100px;
   padding: 12px 24px;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 4px 4px 0px var(--black);
-  transition: all 0.1s ease;
+  box-shadow: 4px 4px 0px var(--card-shadow);
+  transition: all 0.12s ease;
   user-select: none;
   z-index: 3;
 }
 
 .toc-sticker:hover {
   transform: scale(1.05) rotate(0deg) !important;
-  box-shadow: 6px 6px 0px var(--black);
+  box-shadow: 6px 6px 0px var(--card-shadow);
 }
 
 .toc-sticker-active {
   background-color: var(--pink) !important;
-  color: var(--white) !important;
-  border-color: var(--black) !important;
-  box-shadow: 6px 6px 0px var(--black);
+  color: #ffffff !important;
+  border-color: var(--card-border) !important;
+  box-shadow: 6px 6px 0px var(--card-shadow);
 }
 
 @media (min-width: 769px) {
@@ -335,27 +531,126 @@ body {
 
 /* Project Tech Badge */
 .tech-badge {
-  background: var(--white);
-  border: 2px solid var(--black);
+  background: var(--badge-bg);
+  color: var(--text-main);
+  border: 2px solid var(--card-border);
   border-radius: 6px;
   padding: 4px 10px;
   font-size: 0.85rem;
   font-weight: 700;
-  box-shadow: 2px 2px 0px var(--black);
+  box-shadow: 2px 2px 0px var(--card-shadow);
   display: inline-block;
 }
 
-/* Dark Mode Overrides */
+/* ========================================================================= */
+/* SLEEK & BALANCED DARK MODE (Refined Y2K Aesthetics without harsh glare)    */
+/* ========================================================================= */
 html.dark {
-  --lime: #121212;
-  --black: #ffffff;
-  --white: #1e1e1e;
-  --paper: #282828;
+  --lime: #161a22;
+  --pink: #ff2a8d;
+  --yellow: #facc15;
+  --black: #e6edf3;
+  --paper: #1c212d;
+  --ink: #e6edf3;
+  --white: #161b22;
+
+  --bg-primary: #0d1117;
+  --bg-grid: rgba(255, 255, 255, 0.04);
+  --card-bg: #161b22;
+  --card-border: #30363d;
+  --card-shadow: #010409;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --badge-bg: #21262d;
 }
 
 html.dark body {
+  background-color: #0d1117;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+    linear-gradient(rgba(255, 255, 255, 0.035) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 2px, transparent 2px);
+  color: #e6edf3;
 }
 
+html.dark .sticker {
+  background: #161b22;
+  border-color: #30363d;
+  box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .sticker:hover {
+  box-shadow: 7px 7px 0px rgba(0, 0, 0, 0.8);
+}
+
+html.dark .sticker-btn {
+  background: #facc15;
+  color: #0d1117 !important;
+  border-color: #30363d;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .sticker-btn:hover {
+  background: #ff2a8d !important;
+  color: #ffffff !important;
+  border-color: #ff2a8d !important;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.8) !important;
+}
+
+html.dark .paper-note {
+  background: #1c212d;
+  border-color: #384152;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.6);
+  color: #e6edf3;
+}
+
+html.dark .paper-note-pink {
+  background: #231924;
+  border-color: #ff2a8d;
+}
+
+html.dark .toc-container {
+  background: #13171f;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 15%, transparent 16%);
+  border-color: #30363d;
+  box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .toc-center-title {
+  background-color: #facc15;
+  border-color: #000;
+  color: #0d1117;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .toc-sticker {
+  border-color: #30363d;
+  box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.7);
+}
+
+html.dark .tech-badge {
+  background: #21262d;
+  border-color: #30363d;
+  color: #c9d1d9;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.6);
+}
+
+html.dark .stroke-text {
+  -webkit-text-stroke: 1.5px #000;
+  color: #ffffff;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+}
+
+html.dark .stroke-text-pink {
+  -webkit-text-stroke: 1.5px #000;
+  color: #ff2a8d;
+  text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.8);
+}
+
+html.dark .nav-bar {
+  background: #161b22;
+  border-bottom-color: #30363d;
+}
+
+html.dark .sticker-outline {
+  filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 0px #30363d) drop-shadow(1px -1px 0px #30363d) drop-shadow(-1px 1px 0px #30363d) drop-shadow(1px 1px 0px #30363d);
+}

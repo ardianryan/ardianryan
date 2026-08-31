@@ -1,0 +1,153 @@
+# Full Technical Knowledge Base: Ryan Ardian
+
+Title: Fullstack Software Engineer & DevOps / Network Specialist
+Badge: #OPENTOWORK
+Canonical Site: https://ardianryan.com
+
+## Engineering Biography & Overview
+I am a Fullstack Software Engineer, DevOps Engineer, and Network Infrastructure Specialist with extensive experience designing, developing, and deploying mission-critical systems across software, virtualization, and networking layers.
+
+My engineering focus centers on high-throughput backend architectures with Laravel and Hono.js, reactive frontends using React and TypeScript, and enterprise-grade infrastructure. On the DevOps & server orchestration side, I specialize in bare-metal and cloud virtualization using Proxmox VE and VMware ESXi, Docker containerization, VPS fleet management, Linux server hardening, and Cloudflare edge services (R2, Hyperdrive, Turnstile, Tunnels).
+
+In addition to building scalable web applications and POS platforms, I actively serve as an Informatics Educator at SMA Negeri 1 Gedeg, mentoring the next generation in computer science, DevOps workflows, and hands-on MikroTik & virtualization lab environments.
+
+## Career & Technical Milestones
+### DEVOPS, VIRTUALIZATION & CLOUD SERVERS — Proxmox VE, VMware ESXi, VPS Fleet & Docker Orchestration
+Hands-on expertise in deploying, virtualizing, and managing bare-metal and cloud infrastructures. Proficient in configuring Proxmox VE hypervisors, VMware ESXi environments, Linux server security hardening, Docker containerization, Nginx/Caddy reverse proxies, automated backup pipelines, and Cloudflare Zero-Trust edge tunnels.
+Tags: Proxmox VE, VMware ESXi, Docker & Compose, Linux Hardening, VPS Fleet Mgmt, Cloudflare Tunnels
+
+### ENTERPRISE NETWORKING & ROUTING — MikroTik RouterOS, VLANs, Multi-WAN & VPN
+Extensive practical experience designing and maintaining mission-critical campus & institutional networks. Proficient in MikroTik RouterOS multi-WAN load balancing, policy-based routing, OSPF, VLAN isolation, QoS bandwidth shaping, and secure WireGuard/IPsec VPN tunneling.
+Tags: MikroTik RouterOS, VLAN Segmentation, BGP / OSPF, Multi-WAN Load Balancing, WireGuard VPN
+
+### FULLSTACK SOFTWARE DEVELOPMENT — Laravel 11, React SPA, TypeScript & Hyperdrive
+Specialized in delivering robust, high-performance web applications. From architecting scalable Laravel 11 RESTful APIs with Redis caching to building sleek neobrutalist React SPAs, Inertia.js ecosystems, Cloudflare R2 object storage integration, and Hyperdrive database acceleration.
+Tags: Laravel 11, React & TypeScript, Hono.js, PostgreSQL / MySQL, Cloudflare R2, Inertia.js
+
+### EDUCATION & INFORMATICS INSTRUCTION — SMA Negeri 1 Gedeg (Informatics Educator)
+Actively teaching computer science and informatics at SMA Negeri 1 Gedeg. I develop curriculum bridging theoretical computer science with real-world industry tools (JavaScript/TypeScript, Git workflows, REST APIs, DevOps virtualization concepts, and hands-on MikroTik networking labs).
+Tags: Informatics Curriculum, Hands-on Lab, DevOps Concepts, Network Topology Training, Mentorship
+
+## Comprehensive Project Architecture & Deep Dives
+
+------------------------------------------------------------
+### PROJECT: AKAS V2 - Academic Security System
+ID: akas | Year: 2026 | Category: Academic Security App | Status: Private - Active Development
+Technologies: Laravel 11, React SPA, Inertia.js, TailwindCSS, Cloudflare R2
+GitHub Repository: https://github.com/ardianryan
+URL: https://ardianryan.com/projects/akas
+
+**Summary:**
+A comprehensive school discipline & academic monitoring platform. Migrated from legacy PHP Native monolith to modern Laravel API + React SPA architecture with Google OAuth, Cloudflare R2, and Progressive Web App support.
+
+**Technical Architecture & Case Study Blog:**
+AKAS V2 is an enterprise academic safety and discipline management system designed specifically for high-capacity educational institutions.
+
+### The Problem
+Legacy monolithic systems previously suffered from high latency during morning peak hours when thousands of students tapped their physical RFID cards at the school gate simultaneously.
+
+### Architecture & Solution
+1. Decoupled the backend into high-performance Laravel 11 API endpoints with Redis queue caching.
+2. Built an offline-first Progressive Web App (PWA) client interface using React SPA and Inertia.js.
+3. Integrated Cloudflare R2 for zero-egress cost photo asset storage, drastically reducing operational server bandwidth overhead.
+4. Configured automated Google OAuth single sign-on with role-based access control for administrative staff, teachers, and security officers.
+
+**Screenshots & UI Modules:**
+- Admin Dashboard Overview: Real-time stats monitor for daily attendance and student safety alerts. 
+- Security Incident Logs: Dashed table displaying gate entries, late timestamps, and check-ins. 
+- Cloudflare R2 File Assets: Secured cloud storage mapping students photo profile IDs. 
+
+------------------------------------------------------------
+### PROJECT: Satenya Mama Loesye - POS & Management System
+ID: satenya | Year: 2026 | Category: POS & Catering System | Status: Live
+Technologies: React, Hono.js, Prisma ORM, TypeScript, Docker
+Live Demo: https://satenyamamaloesye.ppti.me
+GitHub Repository: https://github.com/ardianryan
+URL: https://ardianryan.com/projects/satenya
+
+**Summary:**
+Point of Sales & catering management system with a bold neobrutalist UI. Features Kitchen Display System synchronization, dynamic QRIS generation, WhatsApp OTP authentication, and delivery radius validation.
+
+**Technical Architecture & Case Study Blog:**
+Satenya Mama Loesye is a custom-engineered Point of Sale (POS) and kitchen management system built for high-volume culinary catering operations.
+
+### Core Engineering Highlights
+- **Real-Time Kitchen Sync:** Orders punched at the cashier station appear on the kitchen display queue in under 80 milliseconds via lightweight WebSockets.
+- **Dynamic QRIS Integration:** Automatic payment generation connected directly to payment gateway webhooks for immediate transaction settlement.
+- **Neobrutalist Interface:** Designed specifically for touchscreens and tablet devices with tactile feedback and high-contrast accessibility.
+- **Docker Containerization:** Fully containerized setup deployed across isolated Docker environments with automated health checks.
+
+**Screenshots & UI Modules:**
+- POS Cashier Terminal: Interactive interface optimized for tablet screen transactions. 
+- Kitchen Queue Screen: Real-time synchronized display for cooking stations. 
+- Dynamic QRIS Modal: Auto-generated payment codes via API with secure webhook hooks. 
+
+------------------------------------------------------------
+### PROJECT: ScholarGate SSO - Portal & CMS
+ID: scholargate | Year: 2026 | Category: SSO & School CMS | Status: Private - Active
+Technologies: Laravel, React, PostgreSQL, Cloudflare R2, OAuth2
+GitHub Repository: https://github.com/ardianryan
+URL: https://ardianryan.com/projects/scholargate
+
+**Summary:**
+Central school education portal and CMS designed for shared-hosting or VPS. Supports Google OAuth SSO, portable JSON data backups, and multi-database configurations.
+
+**Technical Architecture & Case Study Blog:**
+ScholarGate serves as a centralized authentication hub and modern content management platform for academic communities.
+
+### Key Capabilities
+- **Unified Single Sign-On:** Seamless redirection with Google OAuth2 enabling teachers and students to log in without managing separate credentials.
+- **Hybrid Database Agnostic Architecture:** Capable of running seamlessly on SQLite for simple self-contained deployments or scaling up to PostgreSQL.
+- **Secure Data Exports:** Automated database backup tools generating verified JSON snapshots for offline archiving.
+
+**Screenshots & UI Modules:**
+- Google OAuth Portal: Centralized credential verification using safe SSO redirection. 
+- Database Multi-tenant Config: System admin config supporting separate SQLite / PG databases. 
+
+------------------------------------------------------------
+### PROJECT: SIEKSA V3 - School Extracurricular System
+ID: sieksa | Year: 2026 | Category: Extracurricular Panel | Status: Private - Active
+Technologies: React, TypeScript, Hono.js, PostgreSQL, Docker
+GitHub Repository: https://github.com/ardianryan
+URL: https://ardianryan.com/projects/sieksa
+
+**Summary:**
+Web-based extracurricular administrative panel managing student directories, meeting logs, performance metrics, and automated achievement verification.
+
+**Technical Architecture & Case Study Blog:**
+SIEKSA V3 is an open-source extracurricular management suite designed to eliminate paper-based logs and manual attendance rosters in schools.
+
+### Highlights
+- Built with high-speed Hono.js edge APIs and typed React UI.
+- Integrated CSV analytics export for monthly activity compliance.
+- Role-based approvals allowing mentors and student presidents to verify attendance logs digitally.
+
+**Screenshots & UI Modules:**
+- Student Roster Table: Extracurricular member directory with search and CSV reports. 
+- Meeting Attendance Log: Digital ledger verify student attendance with automated approvals. 
+
+## Distributed Network Topology
+### Node: Cloud Services (Position: 250, 60)
+- Description: Edge networks, global DNS routing, and secure object storage for project assets.
+- Stack: Cloudflare R2, Cloudflare DNS, WAF
+
+### Node: MikroTik RouterOS (Position: 250, 160)
+- Description: Core routing, firewall rules, user session management, and traffic queueing policies.
+- Stack: VLANs, QoS Bandwidth Mgmt, WireGuard VPN
+
+### Node: Managed Switch (Position: 250, 260)
+- Description: Local ethernet aggregation segmenting server VLANs from client networks.
+- Stack: L2/L3 Switching, Trunk Ports, Network Isolation
+
+### Node: Application Server (Position: 120, 360)
+- Description: Hosting web services like AKAS v2, ScholarGate SSO, and Satenya Mama Loesye.
+- Stack: Laravel 11+, React SPA, Hono.js POS, Docker
+
+### Node: Database Node (Position: 250, 360)
+- Description: Structured storage nodes for school achievements, POS transactions, and user credentials.
+- Stack: PostgreSQL, MySQL, Prisma ORM
+
+### Node: Client Stations (Position: 380, 360)
+- Description: End-user devices accessing school systems and POS cashier clients.
+- Stack: WiFi Captive Portal, POS Terminals, PWA Devices
+
