@@ -237,6 +237,100 @@ body {
   box-shadow: 2px 2px 0px var(--black);
 }
 
+/* Table of Contents Container */
+.toc-container {
+  position: relative;
+  min-height: 480px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 60px auto;
+  border: 4px solid var(--black);
+  background: var(--white);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.05) 15%, transparent 16%);
+  background-size: 16px 16px;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 8px 8px 0px var(--black);
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .toc-container {
+    min-height: auto;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px 16px;
+  }
+}
+
+/* TOC Center sticker */
+.toc-center-title {
+  background-color: var(--lime);
+  border: 6px solid var(--black);
+  padding: 16px 36px;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--black);
+  transform: rotate(-2deg);
+  box-shadow: 6px 6px 0px var(--black);
+  user-select: none;
+  z-index: 2;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .toc-center-title {
+    font-size: 1.8rem;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+}
+
+/* TOC Stickers */
+.toc-sticker {
+  border: 4px solid var(--black);
+  border-radius: 100px;
+  padding: 12px 24px;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 4px 4px 0px var(--black);
+  transition: all 0.1s ease;
+  user-select: none;
+  z-index: 3;
+}
+
+.toc-sticker:hover {
+  transform: scale(1.05) rotate(0deg) !important;
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+.toc-sticker-active {
+  background-color: var(--pink) !important;
+  color: var(--white) !important;
+  border-color: var(--black) !important;
+  box-shadow: 6px 6px 0px var(--black);
+}
+
+@media (min-width: 769px) {
+  .toc-sticker {
+    position: absolute;
+  }
+}
+
+@media (max-width: 768px) {
+  .toc-sticker {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    width: 100%;
+    text-align: center;
+  }
+}
+
 /* Project Tech Badge */
 .tech-badge {
   background: var(--white);
