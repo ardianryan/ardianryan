@@ -526,6 +526,18 @@ function PortfolioPage() {
                       >
                         {node.icon}
                       </text>
+                      {/* White backing badge to block out connection lines */}
+                      <rect
+                        x={node.cx - 60}
+                        y={node.cy + 30}
+                        width="120"
+                        height="18"
+                        fill="#fff"
+                        stroke="#000"
+                        strokeWidth="2"
+                        rx="4"
+                        style={{ filter: 'drop-shadow(2px 2px 0px #000)' }}
+                      />
                       <text
                         x={node.cx}
                         y={node.cy + 42}
