@@ -229,10 +229,10 @@ function PortfolioPage() {
               ABOUT ME
             </h3>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '16px' }}>
-              I am an **IT Technician & Network Engineer** working at **PPTI**. I design, implement, and secure enterprise network infrastructures while certified as a **MikroTik Certified Professional**.
+              I am an <strong>IT Technician & Network Engineer</strong> working at <strong>PPTI</strong>. I design, implement, and secure enterprise network infrastructures while certified as a <strong>MikroTik Certified Professional</strong>.
             </p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.6', marginBottom: '16px' }}>
-              Beyond networking, I have a deep passion for modern web engineering. I build clean, high-performance user interfaces using **React, TypeScript, Hono.js**, and robust backends built on **Laravel**.
+              Beyond networking, I have a deep passion for modern web engineering. I build clean, high-performance user interfaces using <strong>React, TypeScript, Hono.js</strong>, and robust backends built on <strong>Laravel</strong>.
             </p>
             <p style={{ fontSize: '1.05rem', lineHeight: '1.6' }}>
               I bridge the gap between software development and network administration, ensuring applications run efficiently in fully optimized containerized environments (Docker) and edge proxy architectures (Cloudflare).
