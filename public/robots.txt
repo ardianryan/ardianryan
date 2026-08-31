@@ -1,0 +1,6 @@
+# robots.txt for https://ardianryan.com
+User-agent: *
+Allow: /
+Disallow: /ctrl-desk
+
+Sitemap: https://ardianryan.com/sitemap.xml

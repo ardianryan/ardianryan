@@ -115,10 +115,19 @@ function NotFound() {
 import ParallaxProvider from '../components/ParallaxProvider'
 
 function RootDocument({ children }: { children: React.ReactNode }) {
+  const loaderData = Route.useLoaderData()
+  const aeoSchema = loaderData?.aeoSchema
+
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+        {aeoSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(aeoSchema) }}
+          />
+        )}
         <HeadContent />
       </head>
       <body

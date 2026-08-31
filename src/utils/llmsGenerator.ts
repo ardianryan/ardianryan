@@ -189,10 +189,11 @@ export function generateAeoJsonLd(data: PortfolioData): object {
         name: profile.name,
         jobTitle: profile.title,
         description: profile.shortBio,
-        image: profile.avatarUrl,
+        image: `${siteUrl}${profile.avatarUrl}`,
         url: siteUrl,
         sameAs: [
           'https://github.com/ardianryan',
+          'https://instagram.com/ardianr94',
           'https://linkedin.com/in/ardianryan',
           'https://static.ardianryan.com',
         ],
@@ -208,10 +209,43 @@ export function generateAeoJsonLd(data: PortfolioData): object {
         '@type': 'WebSite',
         '@id': `${siteUrl}/#website`,
         url: siteUrl,
-        name: `${profile.name} - Engineering Portfolio`,
+        name: `${profile.name} - Fullstack Developer & Network Specialist`,
+        description: profile.tagline || profile.shortBio,
         publisher: {
           '@id': `${siteUrl}/#person`,
         },
+        hasPart: [
+          {
+            '@type': 'SiteNavigationElement',
+            name: 'AKAS V2 - High-Throughput POS & Cloud Platform',
+            description: 'Enterprise bus ticketing & high-concurrency cloud POS architecture.',
+            url: `${siteUrl}/projects/akas`,
+          },
+          {
+            '@type': 'SiteNavigationElement',
+            name: 'Satenya Mama Loesye - F&B POS Architecture',
+            description: 'Offline-first culinary multi-branch management platform.',
+            url: `${siteUrl}/projects/satenya-mama-loesye`,
+          },
+          {
+            '@type': 'SiteNavigationElement',
+            name: 'About Me & DevOps Infrastructure',
+            description: 'Background, infrastructure topology, and technical stack.',
+            url: `${siteUrl}/about`,
+          },
+          {
+            '@type': 'SiteNavigationElement',
+            name: 'GitHub Profile',
+            description: 'Open source repositories and contributions.',
+            url: 'https://github.com/ardianryan',
+          },
+          {
+            '@type': 'SiteNavigationElement',
+            name: 'Instagram Profile',
+            description: 'Life, mentorship, and updates.',
+            url: 'https://instagram.com/ardianr94',
+          },
+        ],
       },
       {
         '@type': 'ItemList',
