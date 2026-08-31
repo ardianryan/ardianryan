@@ -52,18 +52,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <HeadContent />
       </head>
-      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(255,0,127,0.24)] paper-filter">
-        {/* SVG Crinkled Paper Texture Filter */}
-        <svg style={{ display: 'none' }}>
-          <filter id="paper-texture">
-            <feTurbulence type="fractalNoise" baseFrequency="0.04" numOctaves="5" result="noise" />
-            <feDiffuseLighting in="noise" lighting-color="#fff" surfaceScale="2" result="light">
-              <feDistantLight azimuth="45" elevation="60" />
-            </feDiffuseLighting>
-            <feBlend mode="multiply" in="SourceGraphic" in2="light" />
-          </filter>
-        </svg>
-
+      <body className="font-sans antialiased [overflow-wrap:anywhere] selection:bg-[rgba(255,0,127,0.24)]">
         <Header />
         {children}
         <Footer />

@@ -22,6 +22,11 @@
 body {
   font-family: var(--font-sans);
   background-color: var(--lime);
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.05) 2px, transparent 2px);
+  background-size: 32px 32px;
+  background-position: -2px -2px;
   color: var(--black);
   overflow-x: hidden;
   position: relative;
@@ -243,3 +248,18 @@ body {
   box-shadow: 2px 2px 0px var(--black);
   display: inline-block;
 }
+
+/* Dark Mode Overrides */
+html.dark {
+  --lime: #121212;
+  --black: #ffffff;
+  --white: #1e1e1e;
+  --paper: #282828;
+}
+
+html.dark body {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 2px, transparent 2px);
+}
+

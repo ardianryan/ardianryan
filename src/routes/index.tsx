@@ -341,7 +341,7 @@ function PortfolioPage() {
                   overflowY: 'auto',
                 }}
               >
-                <div style={{ display: 'flex', gap: '6px', marginBottom: '14px', borderBottom: '2px dashed #00ff66', pb: '8px' }}>
+                <div style={{ display: 'flex', gap: '6px', marginBottom: '14px', borderBottom: '2px dashed #00ff66', paddingBottom: '8px' }}>
                   <span style={{ color: '#ff007f' }}>●</span>
                   <span style={{ color: '#ffe600' }}>●</span>
                   <span style={{ color: '#00ff66' }}>●</span>
@@ -397,7 +397,7 @@ function PortfolioPage() {
           {/* Networking & Hardware */}
           <div className="col-4">
             <div className="sticker" style={{ height: '100%' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', pb: '8px' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', paddingBottom: '8px' }}>
                 NETWORKING 🔌
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -413,7 +413,7 @@ function PortfolioPage() {
           {/* Software & Languages */}
           <div className="col-4">
             <div className="sticker" style={{ height: '100%', background: 'var(--yellow)' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', pb: '8px' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', paddingBottom: '8px' }}>
                 LANGUAGES & DB 💻
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
@@ -429,7 +429,7 @@ function PortfolioPage() {
           {/* Frameworks & Deployments */}
           <div className="col-4">
             <div className="sticker" style={{ height: '100%', background: 'var(--pink)', color: '#fff' }}>
-              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #fff', pb: '8px' }}>
+              <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #fff', paddingBottom: '8px' }}>
                 FRAMEWORKS & OS 🚀
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
