@@ -32,44 +32,44 @@ function PortfolioPage() {
   const projects: Project[] = [
     {
       id: 'akas',
-      title: 'AKAS V2 — Academic Security System',
+      title: 'AKAS V2 - Academic Security System',
       work: 'PPTI',
       year: '2026',
       category: 'Academic Security App',
       tech: ['Laravel 11', 'React SPA', 'Inertia.js', 'TailwindCSS', 'Cloudflare R2'],
       desc: 'A comprehensive school discipline & academic monitoring platform. Migrated from legacy PHP Native monolith to modern Laravel API + React SPA architecture with Google OAuth, Cloudflare R2, and Progressive Web App support.',
-      status: '🔒 Private · Active Development',
+      status: 'Private - Active Development',
     },
     {
       id: 'satenya',
-      title: 'Satenya Mama Loesye — POS & Management System',
+      title: 'Satenya Mama Loesye - POS & Management System',
       work: 'Satenya Mama Loesye',
       year: '2026',
       category: 'POS & Catering System',
       tech: ['React', 'Hono.js', 'Prisma ORM', 'TypeScript', 'Docker'],
       desc: 'Point of Sales & catering management system with a bold neobrutalist UI. Features Kitchen Display System synchronization, dynamic QRIS generation, WhatsApp OTP authentication, and delivery radius validation.',
-      status: '🌐 Live',
+      status: 'Live',
       url: 'https://satenyamamaloesye.ppti.me',
     },
     {
       id: 'scholargate',
-      title: 'ScholarGate SSO — Portal & CMS',
+      title: 'ScholarGate SSO - Portal & CMS',
       work: 'ScholarGate',
       year: '2026',
       category: 'SSO & School CMS',
       tech: ['Laravel', 'React', 'PostgreSQL', 'Cloudflare R2', 'OAuth2'],
       desc: 'Central school education portal and CMS designed for shared-hosting or VPS. Supports Google OAuth SSO, portable JSON data backups, and multi-database configurations.',
-      status: '🔒 Private · Active',
+      status: 'Private - Active',
     },
     {
       id: 'sieksa',
-      title: 'SIEKSA V3 — Extracurricular System',
+      title: 'SIEKSA V3 - School Extracurricular System',
       work: 'Open Source Project',
       year: '2026',
       category: 'Extracurricular Panel',
       tech: ['React', 'TypeScript', 'Hono.js', 'PostgreSQL', 'Docker'],
       desc: 'Web-based extracurricular administrative panel managing student directories, meeting logs, performance metrics, and automated achievement verification.',
-      status: '🔒 Private · Active',
+      status: 'Private - Active',
     },
   ]
 
@@ -79,7 +79,7 @@ function PortfolioPage() {
       name: 'Cloud Services',
       tech: ['Cloudflare R2', 'Cloudflare DNS', 'WAF'],
       desc: 'Edge networks, global DNS routing, and secure object storage for project assets.',
-      icon: '☁️',
+      icon: 'cloud',
       cx: 250,
       cy: 60,
     },
@@ -88,7 +88,7 @@ function PortfolioPage() {
       name: 'MikroTik RouterOS',
       tech: ['VLANs', 'QoS Bandwidth Mgmt', 'WireGuard VPN'],
       desc: 'Core routing, firewall rules, user session management, and traffic queueing policies.',
-      icon: '🔌',
+      icon: 'router',
       cx: 250,
       cy: 160,
     },
@@ -97,7 +97,7 @@ function PortfolioPage() {
       name: 'Managed Switch',
       tech: ['L2/L3 Switching', 'Trunk Ports', 'Network Isolation'],
       desc: 'Local ethernet aggregation segmenting server VLANs from client networks.',
-      icon: '⚙️',
+      icon: 'switch',
       cx: 250,
       cy: 260,
     },
@@ -106,7 +106,7 @@ function PortfolioPage() {
       name: 'Application Server',
       tech: ['Laravel 11+', 'React SPA', 'Hono.js POS', 'Docker'],
       desc: 'Hosting web services like AKAS v2, ScholarGate SSO, and Satenya Mama Loesye.',
-      icon: '💻',
+      icon: 'server-app',
       cx: 120,
       cy: 360,
     },
@@ -115,7 +115,7 @@ function PortfolioPage() {
       name: 'Database Node',
       tech: ['PostgreSQL', 'MySQL', 'Prisma ORM'],
       desc: 'Structured storage nodes for school achievements, POS transactions, and user credentials.',
-      icon: '📊',
+      icon: 'database',
       cx: 250,
       cy: 360,
     },
@@ -124,7 +124,7 @@ function PortfolioPage() {
       name: 'Client Stations',
       tech: ['WiFi Captive Portal', 'POS Terminals', 'PWA Devices'],
       desc: 'End-user devices accessing school systems and POS cashier clients.',
-      icon: '📱',
+      icon: 'clients',
       cx: 380,
       cy: 360,
     },
@@ -132,12 +132,80 @@ function PortfolioPage() {
 
   const currentProject = projects.find((p) => p.id === activeProject)
 
+  const renderNodeIcon = (id: string, cx: number, cy: number) => {
+    const transform = `translate(${cx - 12}, ${cy - 12})` // 24x24 viewport
+    const stroke = '#000'
+    const strokeWidth = 2.2
+    const fill = 'none'
+
+    switch (id) {
+      case 'cloud':
+        return (
+          <g transform={transform}>
+            <path
+              d="M17.5 15a4.5 4.5 0 0 0 .5-8.9 5.5 5.5 0 0 0-10.7-1 4 4 0 0 0-3.3 3.9 4 4 0 0 0 4 4H17.5Z"
+              fill={fill}
+              stroke={stroke}
+              strokeWidth={strokeWidth}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </g>
+        )
+      case 'router':
+        return (
+          <g transform={transform}>
+            <rect x="2" y="10" width="20" height="7" rx="1.5" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <circle cx="6" cy="13.5" r="1" fill={stroke} />
+            <circle cx="10" cy="13.5" r="1" fill={stroke} />
+            <circle cx="14" cy="13.5" r="1" fill={stroke} />
+            <circle cx="18" cy="13.5" r="1" fill={stroke} />
+            <path d="M12 10V4m-3 2.5L12 4l3 2.5" fill="none" stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
+          </g>
+        )
+      case 'switch':
+        return (
+          <g transform={transform}>
+            <rect x="2" y="6" width="20" height="12" rx="2" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <rect x="5" y="9" width="3" height="3" fill="none" stroke={stroke} strokeWidth={1.5} />
+            <rect x="11" y="9" width="3" height="3" fill="none" stroke={stroke} strokeWidth={1.5} />
+            <rect x="17" y="9" width="3" height="3" fill="none" stroke={stroke} strokeWidth={1.5} />
+            <line x1="5" y1="15" x2="19" y2="15" stroke={stroke} strokeWidth={1.5} strokeLinecap="round" />
+          </g>
+        )
+      case 'server-app':
+        return (
+          <g transform={transform}>
+            <rect x="3" y="4" width="18" height="11" rx="2" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <path d="M7 20h10M12 15v5" stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" />
+          </g>
+        )
+      case 'database':
+        return (
+          <g transform={transform}>
+            <path d="M4 6c0 1.66 3.58 3 8 3s8-1.34 8-3-3.58-3-8-3-8 1.34-8 3Z" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <path d="M4 6v6c0 1.66 3.58 3 8 3s8-1.34 8-3V6" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <path d="M4 12v6c0 1.66 3.58 3 8 3s8-1.34 8-3v-6" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+          </g>
+        )
+      case 'clients':
+        return (
+          <g transform={transform}>
+            <rect x="6" y="3" width="12" height="18" rx="2" fill={fill} stroke={stroke} strokeWidth={strokeWidth} />
+            <line x1="10" y1="17" x2="14" y2="17" stroke={stroke} strokeWidth={strokeWidth} strokeLinecap="round" />
+          </g>
+        )
+      default:
+        return null
+    }
+  }
+
   return (
     <div className="container">
       {/* Hero Section */}
       <section style={{ position: 'relative', padding: '40px 0 20px', textAlign: 'center' }}>
         <div style={{ position: 'relative', display: 'inline-block' }}>
-          {/* Spinning Globe Sticker */}
+          {/* Spinning Globe Sticker (SVG Icon instead of emoji) */}
           <div
             className="floating-sticker rotate-slow sticker-outline"
             style={{
@@ -150,10 +218,13 @@ function PortfolioPage() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '1.8rem',
             }}
           >
-            🌐
+            <svg viewBox="0 0 24 24" width="32" height="32" stroke="var(--white)" strokeWidth="2.5" fill="none">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+              <path d="M2 12h20" />
+            </svg>
           </div>
 
           <h1
@@ -181,7 +252,7 @@ function PortfolioPage() {
         </div>
 
         <p style={{ fontSize: '1.25rem', fontWeight: 'bold', maxWidth: '600px', margin: '20px auto 30px' }}>
-          Hi, I'm <span style={{ background: 'var(--yellow)', padding: '2px 8px', border: '2px solid #000' }}>Ardian Ryan</span> 👋 — IT Technician, Network Engineer, and Web Developer building solid software and robust networks.
+          Hi, I'm <span style={{ background: 'var(--yellow)', padding: '2px 8px', border: '2px solid #000' }}>Ardian Ryan</span> — IT Technician, Network Engineer, and Web Developer building solid software and robust networks.
         </p>
       </section>
 
@@ -244,7 +315,7 @@ function PortfolioPage() {
       {/* Table of Contents Section (Playful Sticker Board style matching Image 1) */}
       <section style={{ marginTop: '80px' }}>
         <h2 className="stroke-text" style={{ fontSize: '2.5rem', marginBottom: '24px', textAlign: 'center' }}>
-          📂 SELECT A SEGMENT
+          SELECT A SEGMENT
         </h2>
 
         <div className="toc-container">
@@ -281,7 +352,7 @@ function PortfolioPage() {
 
       {/* Detailed Segment Sheet (Playful Scrapbook style matching Image 2/3/4) */}
       <section style={{ marginTop: '40px' }}>
-        {currentProject ? (
+        {activeProject !== 'lab' && currentProject ? (
           <div className="sticker" style={{ background: 'var(--white)' }}>
             {/* Header Metadata */}
             <div
@@ -321,15 +392,15 @@ function PortfolioPage() {
                   minHeight: '260px',
                 }}
               >
-                {/* Visual decorations matching sticker aesthetics */}
-                <div style={{ position: 'absolute', top: '10px', right: '10px', fontSize: '1.5rem' }}>
-                  🍥
-                </div>
+                {/* Visual decorations matching Y2K sticker star */}
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="var(--black)" strokeWidth="2.5" fill="var(--yellow)" style={{ position: 'absolute', top: '15px', right: '15px' }}>
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                </svg>
 
                 {activeProject === 'akas' && (
                   <div style={{ fontFamily: 'monospace' }}>
                     <div style={{ background: 'var(--black)', color: '#fff', padding: '6px 12px', borderRadius: '4px', marginBottom: '12px' }}>
-                      🏫 academic-security-dashboard
+                      academic-security-dashboard
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '8px' }}>
                       <div style={{ border: '2px solid #000', padding: '8px', background: 'var(--yellow)', fontWeight: 'bold' }}>
@@ -339,8 +410,8 @@ function PortfolioPage() {
                         Gate Alerts: 0
                       </div>
                       <div style={{ border: '2px solid #000', padding: '8px', background: '#fff', gridColumn: 'span 2' }}>
-                        • Cloudflare R2 Connected<br />
-                        • Google OAuth Active
+                        * Cloudflare R2 Connected<br />
+                        * Google OAuth Active
                       </div>
                     </div>
                   </div>
@@ -361,7 +432,7 @@ function PortfolioPage() {
                         transform: 'rotate(-2deg)',
                       }}
                     >
-                      🍢 SATENYA POS CLIENT
+                      SATENYA POS CLIENT
                       <div style={{ background: '#fff', color: '#000', padding: '4px', marginTop: '8px', fontSize: '0.8rem', fontFamily: 'monospace' }}>
                         Total: Rp 125,000<br />
                         [ GENERATE QRIS ]
@@ -373,7 +444,7 @@ function PortfolioPage() {
                 {activeProject === 'scholargate' && (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
                     <div style={{ background: 'var(--yellow)', border: '2px solid #000', padding: '6px 12px', fontWeight: 'bold', borderRadius: '4px' }}>
-                      🔑 Single Sign-On Gateway
+                      Single Sign-On Gateway
                     </div>
                     <div style={{ background: '#fff', border: '2px solid #000', padding: '6px 12px', fontSize: '0.85rem' }}>
                       Integrated across:
@@ -388,7 +459,7 @@ function PortfolioPage() {
                 {activeProject === 'sieksa' && (
                   <div style={{ textAlign: 'center' }}>
                     <div style={{ background: 'var(--black)', color: '#fff', padding: '8px', borderRadius: '4px', marginBottom: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>
-                      📋 SIEKSA-V3 ADMIN
+                      SIEKSA-V3 ADMIN
                     </div>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '6px' }}>
                       <span className="tech-badge">Members: 420</span>
@@ -451,7 +522,7 @@ function PortfolioPage() {
                         boxShadow: '3px 3px 0px var(--black)',
                       }}
                     >
-                      Visit Site 🌐
+                      Visit Site
                     </a>
                   )}
                 </div>
@@ -517,15 +588,10 @@ function PortfolioPage() {
                         stroke="#000"
                         strokeWidth="2"
                       />
-                      <text
-                        x={node.cx}
-                        y={node.cy + 6}
-                        textAnchor="middle"
-                        fontSize="1.3rem"
-                        style={{ userSelect: 'none' }}
-                      >
-                        {node.icon}
-                      </text>
+                      
+                      {/* Render custom vector paths inside the nodes instead of emojis */}
+                      {renderNodeIcon(node.icon, node.cx, node.cy)}
+
                       {/* White backing badge to block out connection lines */}
                       <rect
                         x={node.cx - 60}
@@ -619,14 +685,14 @@ function PortfolioPage() {
           className="stroke-text"
           style={{ fontSize: '2.5rem', marginBottom: '24px', textAlign: 'center' }}
         >
-          🛠️ MY SKILL STICKERS
+          MY SKILL STICKERS
         </h2>
         <div className="bento-grid">
           {/* Networking & Hardware */}
           <div className="col-4">
             <div className="sticker" style={{ height: '100%' }}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', paddingBottom: '8px' }}>
-                NETWORKING 🔌
+                NETWORKING
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {['MikroTik', 'RouterOS', 'Cisco', 'Ubiquiti', 'pfSense', 'OpenWrt', 'Wireshark', 'WireGuard', 'ESP32'].map((tech) => (
@@ -642,7 +708,7 @@ function PortfolioPage() {
           <div className="col-4">
             <div className="sticker" style={{ height: '100%', background: 'var(--yellow)' }}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #000', paddingBottom: '8px' }}>
-                LANGUAGES & DB 💻
+                LANGUAGES & DB
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {['PHP', 'JavaScript', 'TypeScript', 'Python', 'Bash', 'MySQL', 'MariaDB', 'PostgreSQL'].map((tech) => (
@@ -658,7 +724,7 @@ function PortfolioPage() {
           <div className="col-4">
             <div className="sticker" style={{ height: '100%', background: 'var(--pink)', color: '#fff' }}>
               <h3 style={{ fontFamily: 'var(--font-display)', fontSize: '1.2rem', marginBottom: '16px', borderBottom: '3px solid #fff', paddingBottom: '8px' }}>
-                FRAMEWORKS & OS 🚀
+                FRAMEWORKS & OS
               </h3>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                 {['Laravel', 'Node.js', 'React', 'Hono.js', 'Docker', 'Linux', 'Ubuntu', 'Debian', 'Cloudflare'].map((tech) => (

@@ -33,7 +33,7 @@ export default function Footer() {
             color: 'var(--white)',
           }}
         >
-          Built with TanStack Start ⚡
+          Built with TanStack Start
         </p>
       </div>
     </footer>
