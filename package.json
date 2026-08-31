@@ -12,6 +12,7 @@
     "start": "node scripts/node-server.mjs",
     "preview": "vite preview",
     "db:reset": "node --env-file=.env scripts/reset-db.mjs",
+    "db:migrate": "node scripts/migrate.mjs",
     "deploy": "node scripts/deploy.mjs",
     "deploy:dry-run": "vite build && wrangler deploy --dry-run",
     "deploy:staging": "vite build && wrangler deploy --env staging",

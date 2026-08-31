@@ -105,13 +105,13 @@ function PortfolioPage() {
     }
   }
 
-  // Pre-configured sticker colors and positions for TOC
+  // Pre-configured sticker colors and positions for TOC (High contrast in light & dark mode)
   const tocStyles = [
-    { color: 'var(--black)', textColor: 'var(--white)', rotate: '-4deg', left: '15%', top: '20%' },
-    { color: 'var(--pink)', textColor: 'var(--white)', rotate: '5deg', left: '68%', top: '22%' },
-    { color: 'var(--yellow)', textColor: 'var(--black)', rotate: '-6deg', left: '10%', top: '65%' },
-    { color: 'var(--pink)', textColor: 'var(--white)', rotate: '4deg', left: '65%', top: '68%' },
-    { color: 'var(--lime)', textColor: 'var(--black)', rotate: '-3deg', left: '38%', top: '78%' },
+    { color: 'var(--pink)', textColor: '#ffffff', rotate: '-4deg', left: '15%', top: '20%' },
+    { color: 'var(--lime)', textColor: '#0c0c0c', rotate: '5deg', left: '68%', top: '22%' },
+    { color: 'var(--yellow)', textColor: '#0c0c0c', rotate: '-6deg', left: '10%', top: '65%' },
+    { color: 'var(--pink)', textColor: '#ffffff', rotate: '4deg', left: '65%', top: '68%' },
+    { color: 'var(--lime)', textColor: '#0c0c0c', rotate: '-3deg', left: '38%', top: '78%' },
   ]
 
   return (

@@ -10,8 +10,11 @@ import { useLocation } from '@tanstack/react-router'
 export default function ParallaxProvider({ children }: { children: React.ReactNode }) {
   const location = useLocation()
 
+  // 1. Scroll Restoration & Dynamic Route Reveal Engine
   useEffect(() => {
-    // 1. IntersectionObserver for scroll-triggered entrance animations
+    // Instant scroll to top on route change
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' })
+
     const observerCallback: IntersectionObserverCallback = (entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -23,31 +26,43 @@ export default function ParallaxProvider({ children }: { children: React.ReactNo
 
     const observer = new IntersectionObserver(observerCallback, {
       root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.1,
+      rootMargin: '100px 0px 100px 0px',
+      threshold: 0.05,
     })
 
-    // Small timeout to allow DOM layout to settle
-    const timer = setTimeout(() => {
-      const revealElements = document.querySelectorAll('.scroll-reveal')
+    const scanAndObserve = () => {
+      const revealElements = document.querySelectorAll('.scroll-reveal:not(.is-revealed)')
       const windowHeight = window.innerHeight
 
       revealElements.forEach((el) => {
         const rect = el.getBoundingClientRect()
-        // If element is already in initial view, reveal it immediately
-        if (rect.top < windowHeight - 40 && rect.bottom > 0) {
+        // If element is already in viewport or above fold, reveal immediately
+        if (rect.top < windowHeight + 60 && rect.bottom > -60) {
           el.classList.add('is-revealed')
         } else {
-          // If element is below the fold, observe for scroll entry
-          el.classList.remove('is-revealed')
           observer.observe(el)
         }
       })
-    }, 40)
+    }
+
+    // Immediate scan + subsequent frame checks for async loaded routes
+    scanAndObserve()
+    const r1 = requestAnimationFrame(scanAndObserve)
+    const r2 = setTimeout(scanAndObserve, 80)
+    const r3 = setTimeout(scanAndObserve, 250)
+
+    // MutationObserver to auto-reveal any newly inserted route DOM nodes
+    const mutObserver = new MutationObserver(() => {
+      scanAndObserve()
+    })
+    mutObserver.observe(document.body, { childList: true, subtree: true })
 
     return () => {
-      clearTimeout(timer)
+      cancelAnimationFrame(r1)
+      clearTimeout(r2)
+      clearTimeout(r3)
       observer.disconnect()
+      mutObserver.disconnect()
     }
   }, [location.pathname])
 
