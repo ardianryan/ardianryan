@@ -1,4 +1,5 @@
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3'
+import { getEnvVar } from '../data/provider'
 
 export interface R2UploadResult {
   url: string
@@ -8,10 +9,10 @@ export interface R2UploadResult {
 
 export function isR2Configured(): boolean {
   return Boolean(
-    (process.env.R2_ENDPOINT || process.env.R2_ACCOUNT_ID) &&
-    process.env.R2_ACCESS_KEY_ID &&
-    process.env.R2_SECRET_ACCESS_KEY &&
-    process.env.R2_BUCKET_NAME
+    (getEnvVar('R2_ENDPOINT') || getEnvVar('R2_ACCOUNT_ID')) &&
+    getEnvVar('R2_ACCESS_KEY_ID') &&
+    getEnvVar('R2_SECRET_ACCESS_KEY') &&
+    getEnvVar('R2_BUCKET_NAME')
   )
 }
 
@@ -25,6 +26,7 @@ const ALLOWED_MIME_TYPES = new Set([
   'image/x-icon',
   'image/vnd.microsoft.icon',
   'image/avif',
+  'application/octet-stream',
 ])
 
 const ALLOWED_EXTENSIONS = new Set([
@@ -48,18 +50,18 @@ export async function uploadBase64ToR2({
   fileName: string
 }): Promise<R2UploadResult> {
   const endpoint =
-    process.env.R2_ENDPOINT ||
-    (process.env.R2_ACCOUNT_ID
-      ? `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`
+    getEnvVar('R2_ENDPOINT') ||
+    (getEnvVar('R2_ACCOUNT_ID')
+      ? `https://${getEnvVar('R2_ACCOUNT_ID')}.r2.cloudflarestorage.com`
       : '')
 
-  const accessKeyId = process.env.R2_ACCESS_KEY_ID
-  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY
-  const bucketName = process.env.R2_BUCKET_NAME
-  const folderPath = (process.env.R2_FOLDER_PATH || 'portfolio').replace(/^\/+|\/+$/g, '')
-  const publicUrlBase = (process.env.R2_PUBLIC_URL || process.env.R2_PUBLIC_DOMAIN || '').replace(/\/+$/, '')
-  const region = process.env.R2_REGION || 'auto'
-  const forcePathStyle = process.env.R2_USE_PATH_STYLE_ENDPOINT !== 'false'
+  const accessKeyId = getEnvVar('R2_ACCESS_KEY_ID')
+  const secretAccessKey = getEnvVar('R2_SECRET_ACCESS_KEY')
+  const bucketName = getEnvVar('R2_BUCKET_NAME')
+  const folderPath = (getEnvVar('R2_FOLDER_PATH', 'portfolio')).replace(/^\/+|\/+$/g, '')
+  const publicUrlBase = (getEnvVar('R2_PUBLIC_URL') || getEnvVar('R2_PUBLIC_DOMAIN') || '').replace(/\/+$/, '')
+  const region = getEnvVar('R2_REGION', 'auto')
+  const forcePathStyle = getEnvVar('R2_USE_PATH_STYLE_ENDPOINT') !== 'false'
 
   if (!endpoint || !accessKeyId || !secretAccessKey || !bucketName) {
     throw new Error(

@@ -1,7 +1,7 @@
 import { createFileRoute, Link, useRouter } from '@tanstack/react-router'
 import { createServerFn } from '@tanstack/react-start'
 import { useState, useEffect, useRef } from 'react'
-import { getDatabaseProvider, verifyAdminPassword } from '../data/provider'
+import { getDatabaseProvider, verifyAdminPassword, getEnvVar } from '../data/provider'
 import type { Project, Screenshot, ProfileData, AboutSection, SeoConfig } from '../data/provider'
 import { convertAndOptimizeToWebP } from '../utils/imageOptimizer'
 import { uploadBase64ToR2, isR2Configured } from '../utils/r2Uploader'
@@ -95,7 +95,7 @@ const getCtrlDataFn = createServerFn({ method: 'GET' }).handler(async () => {
   const portfolio = await provider.getData()
   return {
     ...portfolio,
-    turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || '',
+    turnstileSiteKey: getEnvVar('TURNSTILE_SITE_KEY', ''),
     isR2Ready: isR2Configured(),
   }
 })

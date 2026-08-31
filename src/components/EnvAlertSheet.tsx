@@ -22,8 +22,7 @@ export default function EnvAlertSheet({ envStatus }: EnvAlertSheetProps) {
     sessionStorage.setItem('env_alert_dismissed', 'true')
   }
 
-  // Never display internal dev fallback alerts in production
-  if (import.meta.env.PROD || !envStatus || !envStatus.isDefaultEnv || isDismissed) {
+  if (!envStatus || !envStatus.isDefaultEnv || isDismissed) {
     return null
   }
 

@@ -1,8 +1,10 @@
+import { getEnvVar } from '../data/provider'
+
 /**
  * Cloudflare Turnstile verification helper for server-side endpoints
  */
 export async function verifyTurnstileToken(token?: string, clientIp?: string): Promise<boolean> {
-  const secretKey = process.env.TURNSTILE_SECRET_KEY || process.env.TURNSTILE_SECRET
+  const secretKey = getEnvVar('TURNSTILE_SECRET_KEY') || getEnvVar('TURNSTILE_SECRET')
 
   // If Turnstile secret key is unset (e.g. during local development), gracefully allow login
   if (!secretKey || secretKey === 'development' || secretKey.trim() === '') {

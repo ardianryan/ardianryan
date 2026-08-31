@@ -93,11 +93,23 @@ export interface PortfolioData {
   envStatus?: EnvStatus
 }
 
+// Universal Environment Variable Resolver (Reads safely from process.env / runtime bindings)
+export function getEnvVar(name: string, fallback = ''): string {
+  if (typeof process !== 'undefined' && process.env && process.env[name]) {
+    return process.env[name]!
+  }
+  const g = globalThis as any
+  if (g) {
+    if (typeof g[name] === 'string') return g[name]
+    if (g.env && typeof g.env[name] === 'string') return g.env[name]
+    if (g.__env__ && typeof g.__env__[name] === 'string') return g.__env__[name]
+  }
+  return fallback
+}
+
 export function getEnvStatus(providerName: string): EnvStatus {
-  const isDefaultPassword =
-    !process.env.ADMIN_PASSWORD ||
-    process.env.ADMIN_PASSWORD === 'your-secret-password-here' ||
-    process.env.ADMIN_PASSWORD === 'M0jokerto1'
+  const currentPassword = getEnvVar('ADMIN_PASSWORD')
+  const isDefaultPassword = !currentPassword || currentPassword === 'your-secret-password-here'
   const isUsingFallbackDb = providerName === 'json'
   const isDefaultEnv = isUsingFallbackDb || isDefaultPassword
 
@@ -1132,9 +1144,9 @@ class AppwriteProvider implements DatabaseProvider {
 
 // Resolver: returns dynamically selected DatabaseProvider based on environment configuration
 export function getDatabaseProvider(): DatabaseProvider {
-  const provider = (process.env.DATABASE_PROVIDER || '').toLowerCase()
-  const hyperdriveUrl = process.env.HYPERDRIVE_URL || process.env.HYPERDRIVE_CONNECTION_STRING
-  const databaseUrl = process.env.DATABASE_URL || ''
+  const provider = (getEnvVar('DATABASE_PROVIDER') || '').toLowerCase()
+  const hyperdriveUrl = getEnvVar('HYPERDRIVE_URL') || getEnvVar('HYPERDRIVE_CONNECTION_STRING')
+  const databaseUrl = getEnvVar('DATABASE_URL')
 
   if (provider === 'json') {
     return new JsonProvider()
@@ -1163,26 +1175,34 @@ export function getDatabaseProvider(): DatabaseProvider {
   }
 
   // 4. Supabase
-  if (provider === 'supabase' && process.env.SUPABASE_URL && process.env.SUPABASE_ANON_KEY) {
-    return new SupabaseProvider(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY)
+  const supabaseUrl = getEnvVar('SUPABASE_URL')
+  const supabaseKey = getEnvVar('SUPABASE_ANON_KEY')
+  if (provider === 'supabase' && supabaseUrl && supabaseKey) {
+    return new SupabaseProvider(supabaseUrl, supabaseKey)
   }
 
   // 5. Appwrite
+  const appwriteEndpoint = getEnvVar('APPWRITE_ENDPOINT')
+  const appwriteProj = getEnvVar('APPWRITE_PROJECT_ID')
+  const appwriteDb = getEnvVar('APPWRITE_DATABASE_ID')
+  const appwriteProjsCol = getEnvVar('APPWRITE_PROJECTS_COLLECTION_ID')
+  const appwriteNodesCol = getEnvVar('APPWRITE_NODES_COLLECTION_ID')
+  const appwriteKey = getEnvVar('APPWRITE_API_KEY')
   if (
     provider === 'appwrite' &&
-    process.env.APPWRITE_ENDPOINT &&
-    process.env.APPWRITE_PROJECT_ID &&
-    process.env.APPWRITE_DATABASE_ID &&
-    process.env.APPWRITE_PROJECTS_COLLECTION_ID &&
-    process.env.APPWRITE_NODES_COLLECTION_ID
+    appwriteEndpoint &&
+    appwriteProj &&
+    appwriteDb &&
+    appwriteProjsCol &&
+    appwriteNodesCol
   ) {
     return new AppwriteProvider(
-      process.env.APPWRITE_ENDPOINT,
-      process.env.APPWRITE_PROJECT_ID,
-      process.env.APPWRITE_DATABASE_ID,
-      process.env.APPWRITE_PROJECTS_COLLECTION_ID,
-      process.env.APPWRITE_NODES_COLLECTION_ID,
-      process.env.APPWRITE_API_KEY
+      appwriteEndpoint,
+      appwriteProj,
+      appwriteDb,
+      appwriteProjsCol,
+      appwriteNodesCol,
+      appwriteKey
     )
   }
 
@@ -1201,19 +1221,24 @@ export function getDatabaseProvider(): DatabaseProvider {
 // Secret Password Verification Helper (Timing-safe comparison)
 export function verifyAdminPassword(inputPassword: string): boolean {
   if (!inputPassword || typeof inputPassword !== 'string') return false
-  const secret = process.env.ADMIN_PASSWORD || 'M0jokerto1'
-  const inputBuffer = Buffer.from(inputPassword)
-  const secretBuffer = Buffer.from(secret)
-
-  if (inputBuffer.length !== secretBuffer.length) {
-    // Perform dummy timing-safe comparison to maintain constant time
-    try {
-      nodeCrypto.timingSafeEqual(inputBuffer, inputBuffer)
-    } catch {}
-    return false
+  const secret = getEnvVar('ADMIN_PASSWORD')
+  if (!secret) return false
+  
+  if (inputPassword === secret) {
+    return true
   }
 
   try {
+    const inputBuffer = Buffer.from(inputPassword)
+    const secretBuffer = Buffer.from(secret)
+
+    if (inputBuffer.length !== secretBuffer.length) {
+      try {
+        nodeCrypto.timingSafeEqual(inputBuffer, inputBuffer)
+      } catch {}
+      return false
+    }
+
     return nodeCrypto.timingSafeEqual(inputBuffer, secretBuffer)
   } catch {
     return false
