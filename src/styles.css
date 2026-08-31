@@ -1,20 +1,22 @@
 /* Space Grotesk and Archivo Black Typography custom styling */
 :root {
-  --lime: #98ff1a;
+  --lime: #00e676;
   --pink: #ff007f;
-  --yellow: #ffe600;
+  --yellow: #ffd600;
+  --cyan: #00e5ff;
   --black: #0c0c0c;
-  --paper: #f5f5f0;
-  --ink: #1a1a1a;
+  --paper: #ffffff;
+  --ink: #0c0c0c;
   --white: #ffffff;
 
-  --bg-primary: #98ff1a;
-  --bg-grid: rgba(0, 0, 0, 0.05);
+  /* Eye-friendly warm off-white canvas with dark grid for light mode */
+  --bg-primary: #f4f4ee;
+  --bg-grid: rgba(12, 12, 12, 0.05);
   --card-bg: #ffffff;
   --card-border: #0c0c0c;
   --card-shadow: #0c0c0c;
   --text-main: #0c0c0c;
-  --text-muted: #555555;
+  --text-muted: #4b5563;
   --badge-bg: #ffffff;
   
   --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
@@ -26,6 +28,12 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--pink);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 body {
@@ -661,3 +669,24 @@ html.dark .nav-bar {
 html.dark .sticker-outline {
   filter: drop-shadow(3px 3px 0px rgba(0,0,0,0.8)) drop-shadow(-1px -1px 0px #30363d) drop-shadow(1px -1px 0px #30363d) drop-shadow(-1px 1px 0px #30363d) drop-shadow(1px 1px 0px #30363d);
 }
+
+/* ========================================================================= */
+/* ACCESSIBILITY: WCAG 2.1 AA / AAA COMPLIANCE & REDUCED MOTION SUPPORT      */
+/* ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .parallax-float, [data-parallax-depth] {
+    transform: none !important;
+  }
+}
+
