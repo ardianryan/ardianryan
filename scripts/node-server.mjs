@@ -36,26 +36,72 @@ function getMimeType(filePath) {
   return MIME_TYPES[ext] || 'application/octet-stream'
 }
 
+const MAX_BODY_BYTES = 12 * 1024 * 1024 // 12MB limit
+
+const SECURITY_HEADERS = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'SAMEORIGIN',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=()',
+  'X-XSS-Protection': '1; mode=block',
+}
+
+const BLOCKED_PATTERNS = [
+  /^\/\.env/i,
+  /^\/\.git/i,
+  /^\/\.vscode/i,
+  /^\/\.dockerignore/i,
+  /^\/package\.json/i,
+  /^\/package-lock\.json/i,
+  /^\/Dockerfile/i,
+  /^\/scripts\//i,
+  /^\/src\//i,
+  /^\/node_modules\//i,
+]
+
 const server = http.createServer(async (req, res) => {
   try {
+    // Apply core security headers to all responses
+    for (const [secHeader, secVal] of Object.entries(SECURITY_HEADERS)) {
+      res.setHeader(secHeader, secVal)
+    }
+
     const url = new URL(req.url || '/', `http://${req.headers.host || 'localhost:3000'}`)
     let reqPath = decodeURIComponent(url.pathname)
 
-    // 1. Static Asset Serving from dist/client or public
-    let filePath = path.join(clientDir, reqPath)
-    if (!fs.existsSync(filePath) || !fs.statSync(filePath).isFile()) {
-      filePath = path.join(publicDir, reqPath)
+    // Block directory traversal or hidden/sensitive server files immediately
+    if (
+      reqPath.includes('..') ||
+      reqPath.includes('\0') ||
+      BLOCKED_PATTERNS.some((pattern) => pattern.test(reqPath))
+    ) {
+      res.statusCode = 403
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+      res.end('Access Forbidden: Security policy violation.')
+      return
     }
 
-    if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-      const mime = getMimeType(filePath)
+    // 1. Static Asset Serving with safe path boundary enforcement
+    const safeRelPath = path.normalize(reqPath).replace(/^(\.\.[\/\\])+/, '')
+    const resolvedClientPath = path.resolve(clientDir, '.' + safeRelPath)
+    const resolvedPublicPath = path.resolve(publicDir, '.' + safeRelPath)
+
+    let finalFilePath = null
+    if (resolvedClientPath.startsWith(clientDir) && fs.existsSync(resolvedClientPath) && fs.statSync(resolvedClientPath).isFile()) {
+      finalFilePath = resolvedClientPath
+    } else if (resolvedPublicPath.startsWith(publicDir) && fs.existsSync(resolvedPublicPath) && fs.statSync(resolvedPublicPath).isFile()) {
+      finalFilePath = resolvedPublicPath
+    }
+
+    if (finalFilePath) {
+      const mime = getMimeType(finalFilePath)
       res.setHeader('Content-Type', mime)
       if (reqPath.startsWith('/assets/')) {
         res.setHeader('Cache-Control', 'public, max-age=31536000, immutable')
       } else {
         res.setHeader('Cache-Control', 'public, max-age=3600')
       }
-      fs.createReadStream(filePath).pipe(res)
+      fs.createReadStream(finalFilePath).pipe(res)
       return
     }
 
@@ -77,8 +123,16 @@ const server = http.createServer(async (req, res) => {
     }
 
     if (req.method !== 'GET' && req.method !== 'HEAD') {
+      let receivedBytes = 0
       const chunks = []
       for await (const chunk of req) {
+        receivedBytes += chunk.length
+        if (receivedBytes > MAX_BODY_BYTES) {
+          res.statusCode = 413
+          res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+          res.end('Payload Too Large: Maximum allowed request size is 12MB.')
+          return
+        }
         chunks.push(chunk)
       }
       init.body = Buffer.concat(chunks)
@@ -108,7 +162,7 @@ const server = http.createServer(async (req, res) => {
     console.error('SSR Request Error:', err)
     if (!res.headersSent) {
       res.statusCode = 500
-      res.setHeader('Content-Type', 'text/plain')
+      res.setHeader('Content-Type', 'text/plain; charset=utf-8')
       res.end('Internal Server Error')
     }
   }

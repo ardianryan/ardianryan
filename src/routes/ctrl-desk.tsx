@@ -10,17 +10,63 @@ import { generateLlmsTxt, generateLlmsFullTxt } from '../utils/llmsGenerator'
 import { syncStaticLlmsFiles } from '../utils/llmsWriter.server'
 import EnvAlertSheet from '../components/EnvAlertSheet'
 
+// In-Memory Rate Limiter for Login Protection
+const loginAttempts = new Map<string, { count: number; lockedUntil: number }>()
+
+function checkRateLimit(identifier: string = 'global'): void {
+  const now = Date.now()
+  const record = loginAttempts.get(identifier)
+
+  if (record) {
+    if (record.lockedUntil > now) {
+      const waitSec = Math.ceil((record.lockedUntil - now) / 1000)
+      throw new Error(`Security Lockout: Too many failed login attempts. Please wait ${waitSec}s before trying again.`)
+    }
+    if (now - record.lockedUntil > 300000) {
+      loginAttempts.delete(identifier)
+    }
+  }
+}
+
+function recordLoginFailure(identifier: string = 'global'): void {
+  const now = Date.now()
+  const record = loginAttempts.get(identifier) || { count: 0, lockedUntil: 0 }
+  record.count += 1
+
+  if (record.count >= 5) {
+    record.lockedUntil = now + 60000 // 60s lockout
+  }
+  loginAttempts.set(identifier, record)
+}
+
+function resetLoginAttempts(identifier: string = 'global'): void {
+  loginAttempts.delete(identifier)
+}
+
 // Server Functions
 const verifyAuthFn = createServerFn({ method: 'POST' })
   .validator((data: { password: string; turnstileToken?: string; isSessionRestore?: boolean }) => data)
   .handler(async ({ data }) => {
+    checkRateLimit()
+
     if (!data.isSessionRestore) {
       const isTokenValid = await verifyTurnstileToken(data.turnstileToken)
       if (!isTokenValid) {
+        recordLoginFailure()
         throw new Error('Bot validation failed: Turnstile verification did not pass.')
       }
     }
-    return verifyAdminPassword(data.password)
+
+    const isValid = verifyAdminPassword(data.password)
+    if (!isValid) {
+      recordLoginFailure()
+      // Artificial delay to prevent brute-force timing enumeration
+      await new Promise((resolve) => setTimeout(resolve, 350))
+      return false
+    }
+
+    resetLoginAttempts()
+    return true
   })
 
 const uploadMediaToR2Fn = createServerFn({ method: 'POST' })

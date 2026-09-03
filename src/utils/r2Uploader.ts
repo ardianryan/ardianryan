@@ -91,14 +91,35 @@ export async function uploadBase64ToR2({
     throw new Error(`Security validation failed: Unsupported MIME type "${contentType}". Only safe web image formats are permitted.`)
   }
 
-  // 3. Filename and extension sanitization (Path Traversal prevention)
-  const cleanBase = fileName.replace(/[\/\\]/g, '').replace(/\.\.+/g, '')
+  // 3. Filename and extension sanitization (Path Traversal & Null Byte prevention)
+  const cleanBase = fileName.replace(/\0/g, '').replace(/[\/\\]/g, '').replace(/\.\.+/g, '')
   const safeName = cleanBase.replace(/[^a-zA-Z0-9._-]/g, '_')
   const extMatch = safeName.match(/\.[a-zA-Z0-9]+$/)
   const ext = extMatch ? extMatch[0].toLowerCase() : ''
 
   if (ext && !ALLOWED_EXTENSIONS.has(ext)) {
     throw new Error(`Security validation failed: Unsupported file extension "${ext}".`)
+  }
+
+  // 4. SVG Security Sanitization (Stored XSS Defense)
+  if (contentType === 'image/svg+xml' || ext === '.svg') {
+    const svgContent = buffer.toString('utf-8').toLowerCase()
+    const forbiddenSvgPatterns = [
+      /<script[\s>]/i,
+      /javascript:/i,
+      /onload[\s=]/i,
+      /onerror[\s=]/i,
+      /onclick[\s=]/i,
+      /<foreignobject[\s>]/i,
+      /<iframe[\s>]/i,
+      /<embed[\s>]/i,
+      /<object[\s>]/i,
+    ]
+    for (const pattern of forbiddenSvgPatterns) {
+      if (pattern.test(svgContent)) {
+        throw new Error('Security validation failed: SVG contains potentially dangerous executable script or embedded object.')
+      }
+    }
   }
 
   const s3 = new S3Client({

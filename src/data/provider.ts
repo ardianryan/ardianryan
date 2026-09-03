@@ -1218,28 +1218,16 @@ export function getDatabaseProvider(): DatabaseProvider {
   return new JsonProvider()
 }
 
-// Secret Password Verification Helper (Timing-safe comparison)
+// Secret Password Verification Helper (Constant-Time SHA-256 Digest Timing-Safe Comparison)
 export function verifyAdminPassword(inputPassword: string): boolean {
   if (!inputPassword || typeof inputPassword !== 'string') return false
   const secret = getEnvVar('ADMIN_PASSWORD')
   if (!secret) return false
-  
-  if (inputPassword === secret) {
-    return true
-  }
 
   try {
-    const inputBuffer = Buffer.from(inputPassword)
-    const secretBuffer = Buffer.from(secret)
-
-    if (inputBuffer.length !== secretBuffer.length) {
-      try {
-        nodeCrypto.timingSafeEqual(inputBuffer, inputBuffer)
-      } catch {}
-      return false
-    }
-
-    return nodeCrypto.timingSafeEqual(inputBuffer, secretBuffer)
+    const inputHash = nodeCrypto.createHash('sha256').update(inputPassword, 'utf8').digest()
+    const secretHash = nodeCrypto.createHash('sha256').update(secret, 'utf8').digest()
+    return nodeCrypto.timingSafeEqual(inputHash, secretHash)
   } catch {
     return false
   }
