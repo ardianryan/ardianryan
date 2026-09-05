@@ -225,6 +225,7 @@ function CtrlDeskPage() {
   const [seoForm, setSeoForm] = useState<SeoConfig>(defaultSeo)
   const [keywordsText, setKeywordsText] = useState<string>((defaultSeo.keywords || []).join(', '))
   const [llmsSyncStatus, setLlmsSyncStatus] = useState<string>('')
+  const [isDraggingScreenshots, setIsDraggingScreenshots] = useState<boolean>(false)
 
   // Restore authentication session from browser storage across page reloads
   useEffect(() => {
@@ -536,6 +537,58 @@ function CtrlDeskPage() {
       ...editingProject,
       screenshots: next,
     })
+  }
+
+  // Batch upload and auto-convert multiple screenshots to WebP -> R2
+  const handleUploadMultipleScreenshots = async (files: FileList | File[]) => {
+    if (!editingProject) return
+    const fileArray = Array.from(files).filter((f) => f.type.startsWith('image/'))
+    if (fileArray.length === 0) return
+
+    setUploadingState(`Preparing ${fileArray.length} image(s) for WebP conversion...`)
+    const newScreenshots: Screenshot[] = []
+
+    for (let i = 0; i < fileArray.length; i++) {
+      const file = fileArray[i]
+      setUploadingState(`[${i + 1}/${fileArray.length}] Optimizing ${file.name} to WebP...`)
+      try {
+        const { base64, fileName, size } = await convertAndOptimizeToWebP(file)
+        setUploadingState(`[${i + 1}/${fileArray.length}] Uploading ${(size / 1024).toFixed(1)} KB WebP to Cloudflare R2...`)
+
+        const res = await uploadMediaToR2Fn({
+          data: {
+            password: activePassword,
+            base64Data: base64,
+            fileName,
+          },
+        })
+
+        const cleanTitle = file.name
+          .replace(/\.[^/.]+$/, '')
+          .replace(/[-_]/g, ' ')
+          .replace(/\b\w/g, (c) => c.toUpperCase())
+
+        newScreenshots.push({
+          id: `screen_${Date.now()}_${i}`,
+          title: cleanTitle || `Screenshot ${i + 1}`,
+          desc: `UI screenshot for ${cleanTitle}`,
+          imageUrl: res.url,
+        })
+      } catch (err: any) {
+        alert(`Error uploading ${file.name}: ${err?.message || 'Failed'}`)
+      }
+    }
+
+    if (newScreenshots.length > 0) {
+      setEditingProject({
+        ...editingProject,
+        screenshots: [...(editingProject.screenshots || []), ...newScreenshots],
+      })
+      setUploadingState(`✅ Successfully converted & uploaded ${newScreenshots.length} screenshot(s) to R2!`)
+      setTimeout(() => setUploadingState(''), 3000)
+    } else {
+      setUploadingState('')
+    }
   }
 
   // Add / Remove About Sections
@@ -1695,95 +1748,239 @@ function CtrlDeskPage() {
                 />
               </div>
 
-              {/* Screenshots list inside project */}
-              <div style={{ border: '2px dashed #000', padding: '12px', borderRadius: '6px', background: 'var(--paper)' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
-                  <label style={{ fontWeight: 'bold', fontSize: '0.85rem' }}>Screenshots Config (Auto-Convert WebP to Cloudflare R2):</label>
+              {/* Screenshots Manager (Auto-Convert WebP to Cloudflare R2) */}
+              <div style={{ border: '2px solid var(--card-border)', padding: '16px', borderRadius: '8px', background: 'var(--card-bg)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '12px' }}>
+                  <div>
+                    <label style={{ fontWeight: 'bold', fontSize: '0.95rem', display: 'block' }}>
+                      📸 Screenshots & UI Media (Auto-Convert WebP ➔ Cloudflare R2)
+                    </label>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                      Drag & drop image files below to automatically optimize to WebP and upload to your R2 bucket.
+                    </span>
+                  </div>
                   <button
                     type="button"
                     onClick={handleAddScreenshot}
-                    style={{ background: 'var(--lime)', border: '2px solid #000', padding: '2px 8px', fontSize: '0.75rem', fontWeight: 'bold', cursor: 'pointer' }}
+                    style={{ background: 'var(--yellow)', border: '2px solid #000', padding: '4px 10px', fontSize: '0.8rem', fontWeight: 'bold', cursor: 'pointer', borderRadius: '4px' }}
                   >
-                    + Add Screen
+                    + Add Blank Card
                   </button>
                 </div>
 
-                {editingProject.screenshots?.map((s, idx) => (
-                  <div key={idx} style={{ background: '#fff', border: '1px solid #000', borderRadius: '6px', padding: '10px', marginBottom: '8px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr auto', gap: '6px', marginBottom: '8px' }}>
-                      <input
-                        type="text"
-                        placeholder="Title"
-                        value={s.title}
-                        onChange={(e) => {
-                          const next = [...(editingProject.screenshots || [])]
-                          next[idx].title = e.target.value
-                          setEditingProject({ ...editingProject, screenshots: next })
+                {/* Drag & Drop Multi-Upload Dropzone */}
+                <div
+                  onDragOver={(e) => {
+                    e.preventDefault()
+                    setIsDraggingScreenshots(true)
+                  }}
+                  onDragLeave={() => setIsDraggingScreenshots(false)}
+                  onDrop={(e) => {
+                    e.preventDefault()
+                    setIsDraggingScreenshots(false)
+                    if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                      handleUploadMultipleScreenshots(e.dataTransfer.files)
+                    }
+                  }}
+                  onClick={() => {
+                    document.getElementById('multi-screenshot-input')?.click()
+                  }}
+                  style={{
+                    border: `2px dashed ${isDraggingScreenshots ? 'var(--pink)' : '#000'}`,
+                    borderRadius: '8px',
+                    padding: '24px 16px',
+                    textAlign: 'center',
+                    background: isDraggingScreenshots ? 'rgba(255, 0, 127, 0.08)' : 'var(--paper)',
+                    marginBottom: '16px',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  <input
+                    id="multi-screenshot-input"
+                    type="file"
+                    multiple
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    onChange={(e) => {
+                      if (e.target.files && e.target.files.length > 0) {
+                        handleUploadMultipleScreenshots(e.target.files)
+                      }
+                    }}
+                  />
+                  <div style={{ fontSize: '2.2rem', marginBottom: '4px' }}>🖼️</div>
+                  <div style={{ fontWeight: 'bold', fontSize: '0.95rem', color: 'var(--text-main)' }}>
+                    {uploadingState || 'Drag & drop image files here, or click to browse'}
+                  </div>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '4px' }}>
+                    Supports PNG, JPG, JPEG, WebP (Multi-selection enabled) • Auto-optimizes to WebP and uploads to Cloudflare R2 CDN
+                  </div>
+                </div>
+
+                {/* List of Screenshot Cards */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {(!editingProject.screenshots || editingProject.screenshots.length === 0) && (
+                    <div style={{ textAlign: 'center', padding: '16px', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
+                      No screenshots added yet. Drag and drop images above to get started!
+                    </div>
+                  )}
+
+                  {editingProject.screenshots?.map((s, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        background: 'var(--paper)',
+                        border: '2px solid var(--card-border)',
+                        borderRadius: '8px',
+                        padding: '12px',
+                        display: 'grid',
+                        gridTemplateColumns: '120px 1fr auto',
+                        gap: '12px',
+                        alignItems: 'center',
+                      }}
+                    >
+                      {/* Left: Thumbnail Preview or Upload Trigger */}
+                      <div
+                        style={{
+                          width: '120px',
+                          height: '80px',
+                          borderRadius: '6px',
+                          border: '2px solid #000',
+                          background: '#111',
+                          overflow: 'hidden',
+                          position: 'relative',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
                         }}
-                        style={{ padding: '4px', border: '1px solid #000', fontSize: '0.8rem' }}
-                      />
-                      <input
-                        type="text"
-                        placeholder="Description"
-                        value={s.desc}
-                        onChange={(e) => {
-                          const next = [...(editingProject.screenshots || [])]
-                          next[idx].desc = e.target.value
-                          setEditingProject({ ...editingProject, screenshots: next })
-                        }}
-                        style={{ padding: '4px', border: '1px solid #000', fontSize: '0.8rem' }}
-                      />
+                      >
+                        {s.imageUrl ? (
+                          <img
+                            src={s.imageUrl}
+                            alt={s.title}
+                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                            onError={(e) => {
+                              ;(e.currentTarget as HTMLImageElement).style.display = 'none'
+                            }}
+                          />
+                        ) : (
+                          <span style={{ fontSize: '0.75rem', color: '#fff', textAlign: 'center', padding: '4px' }}>
+                            No Image
+                          </span>
+                        )}
+                        <label
+                          title="Replace Image"
+                          style={{
+                            position: 'absolute',
+                            bottom: '2px',
+                            right: '2px',
+                            background: 'var(--yellow)',
+                            border: '1px solid #000',
+                            borderRadius: '3px',
+                            padding: '1px 5px',
+                            fontSize: '0.65rem',
+                            fontWeight: 'bold',
+                            cursor: 'pointer',
+                            color: '#000',
+                          }}
+                        >
+                          Change
+                          <input
+                            type="file"
+                            accept="image/*"
+                            style={{ display: 'none' }}
+                            onChange={(e) => {
+                              const file = e.target.files?.[0]
+                              if (file) {
+                                handleUploadMedia(file, (url) => {
+                                  const next = [...(editingProject.screenshots || [])]
+                                  next[idx].imageUrl = url
+                                  setEditingProject({ ...editingProject, screenshots: next })
+                                })
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
+
+                      {/* Middle: Title, Description & R2 URL status */}
+                      <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                        <input
+                          type="text"
+                          placeholder="Screenshot Title (e.g. Admin Dashboard Overview)"
+                          value={s.title}
+                          onChange={(e) => {
+                            const next = [...(editingProject.screenshots || [])]
+                            next[idx].title = e.target.value
+                            setEditingProject({ ...editingProject, screenshots: next })
+                          }}
+                          style={{ padding: '6px 8px', border: '1.5px solid #000', borderRadius: '4px', fontSize: '0.85rem', fontWeight: 'bold' }}
+                        />
+                        <input
+                          type="text"
+                          placeholder="Brief description / caption..."
+                          value={s.desc}
+                          onChange={(e) => {
+                            const next = [...(editingProject.screenshots || [])]
+                            next[idx].desc = e.target.value
+                            setEditingProject({ ...editingProject, screenshots: next })
+                          }}
+                          style={{ padding: '6px 8px', border: '1.5px solid #000', borderRadius: '4px', fontSize: '0.8rem' }}
+                        />
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                          <span
+                            style={{
+                              fontSize: '0.72rem',
+                              fontFamily: 'monospace',
+                              padding: '2px 6px',
+                              borderRadius: '3px',
+                              background: s.imageUrl ? 'var(--lime)' : '#eee',
+                              color: '#000',
+                              fontWeight: 'bold',
+                              whiteSpace: 'nowrap',
+                            }}
+                          >
+                            {s.imageUrl ? '⚡ R2 WebP Ready' : '⚠️ No Link'}
+                          </span>
+                          <input
+                            type="text"
+                            value={s.imageUrl || ''}
+                            readOnly
+                            placeholder="R2 CDN link will automatically appear here once uploaded"
+                            style={{
+                              flex: '1',
+                              padding: '3px 6px',
+                              fontSize: '0.72rem',
+                              fontFamily: 'monospace',
+                              border: '1px solid #ccc',
+                              borderRadius: '3px',
+                              background: '#f9f9f9',
+                              color: '#555',
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      {/* Right: Delete button */}
                       <button
                         type="button"
                         onClick={() => handleRemoveScreenshot(idx)}
-                        style={{ background: '#ff4444', color: '#fff', border: '1px solid #000', padding: '0 6px', cursor: 'pointer' }}
+                        title="Delete Screenshot"
+                        style={{
+                          background: '#ff4444',
+                          color: '#fff',
+                          border: '2px solid #000',
+                          borderRadius: '4px',
+                          padding: '6px 10px',
+                          fontWeight: 'bold',
+                          cursor: 'pointer',
+                        }}
                       >
-                        &times;
+                        🗑️
                       </button>
                     </div>
-
-                    <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
-                      <input
-                        type="url"
-                        placeholder="Image URL (e.g. https://... or R2 CDN link)"
-                        value={s.imageUrl || ''}
-                        onChange={(e) => {
-                          const next = [...(editingProject.screenshots || [])]
-                          next[idx].imageUrl = e.target.value
-                          setEditingProject({ ...editingProject, screenshots: next })
-                        }}
-                        style={{ flex: '1', padding: '4px 8px', border: '1px solid #000', fontSize: '0.8rem' }}
-                      />
-                      <label
-                        className="sticker-btn"
-                        style={{
-                          background: 'var(--yellow)',
-                          padding: '4px 10px',
-                          fontSize: '0.75rem',
-                          cursor: 'pointer',
-                          whiteSpace: 'nowrap',
-                        }}
-                      >
-                        Upload (R2 WebP)
-                        <input
-                          type="file"
-                          accept="image/*"
-                          style={{ display: 'none' }}
-                          onChange={(e) => {
-                            const file = e.target.files?.[0]
-                            if (file) {
-                              handleUploadMedia(file, (url) => {
-                                const next = [...(editingProject.screenshots || [])]
-                                next[idx].imageUrl = url
-                                setEditingProject({ ...editingProject, screenshots: next })
-                              })
-                            }
-                          }}
-                        />
-                      </label>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
 
               {statusMessage && (

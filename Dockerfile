@@ -42,6 +42,6 @@ USER appuser
 EXPOSE 3000
 
 HEALTHCHECK --interval=15s --timeout=5s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://127.0.0.1:3000/ || exit 1
+  CMD node -e "const port = process.env.PORT || 3000; const req = require('http').get('http://127.0.0.1:' + port + '/', (r) => process.exit(r.statusCode < 500 ? 0 : 1)); req.on('error', () => process.exit(1)); req.end();"
 
 CMD ["node", "scripts/node-server.mjs"]
