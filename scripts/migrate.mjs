@@ -9,10 +9,12 @@ const seedFilePath = path.resolve(__dirname, '../src/data/db.json')
 async function runSmartMigration() {
   console.log('🔄 Running Safe Smart Database Migration...')
 
-  const connectionString =
-    process.env.DATABASE_URL ||
-    process.env.HYPERDRIVE_URL ||
-    'postgresql://repoardiporto:jpK5LJ7Wz8x34LfG@panel-asia.ppti.me:5432/repoardiporto'
+  const connectionString = process.env.DATABASE_URL || process.env.HYPERDRIVE_URL
+
+  if (!connectionString) {
+    console.error('❌ Error: DATABASE_URL or HYPERDRIVE_URL environment variable is required to run migrations.')
+    process.exit(1)
+  }
 
   const client = new pg.Client({
     connectionString,
