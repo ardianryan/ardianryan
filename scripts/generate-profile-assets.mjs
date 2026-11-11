@@ -9,44 +9,61 @@ if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }
 
-const SECTIONS = [
+const FEATURED_REPOS = [
+  { id: 0, repo: "Jalasmara-The-Game" },
+  { id: 1, repo: "qbiz-qrisdinamis" },
+  { id: 2, repo: "MikroTik-Skill" },
+  { id: 3, repo: "pemilu-ppts" },
+  { id: 4, repo: "papermc-skill" },
+  { id: 5, repo: "eyd-v" },
+];
+
+const METRO_SECTIONS = [
   {
-    filename: "hero-light.svg",
-    url: "https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=light",
+    filename: "metro-map-light.svg",
+    url: "https://www.gitskins.com/api/section/metro-map?username=ardianryan&mode=light&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "hero-dark.svg",
-    url: "https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=dark",
+    filename: "metro-map-dark.svg",
+    url: "https://www.gitskins.com/api/section/metro-map?username=ardianryan&mode=dark&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "wordmark.svg",
-    url: "https://www.gitskins.com/api/section/wordmark?username=ardianryan&theme=aurora&label=Ardian%20Ryan",
+    filename: "metro-about-light.svg",
+    url: "https://www.gitskins.com/api/section/metro-about?username=ardianryan&mode=light&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "stack-light.svg",
-    url: "https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=light",
+    filename: "metro-about-dark.svg",
+    url: "https://www.gitskins.com/api/section/metro-about?username=ardianryan&mode=dark&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "stack-dark.svg",
-    url: "https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=dark",
+    filename: "metro-stack-light.svg",
+    url: "https://www.gitskins.com/api/section/metro-stack?username=ardianryan&mode=light&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "stats-light.svg",
-    url: "https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=light",
+    filename: "metro-stack-dark.svg",
+    url: "https://www.gitskins.com/api/section/metro-stack?username=ardianryan&mode=dark&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "stats-dark.svg",
-    url: "https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=dark",
+    filename: "metro-log-light.svg",
+    url: "https://www.gitskins.com/api/section/metro-log?username=ardianryan&mode=light&v=" + new Date().toISOString().slice(0, 10),
   },
   {
-    filename: "highlights-light.svg",
-    url: "https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=light&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools",
-  },
-  {
-    filename: "highlights-dark.svg",
-    url: "https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=dark&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools",
+    filename: "metro-log-dark.svg",
+    url: "https://www.gitskins.com/api/section/metro-log?username=ardianryan&mode=dark&v=" + new Date().toISOString().slice(0, 10),
   },
 ];
+
+// Add card items for each repo in light and dark mode
+for (const item of FEATURED_REPOS) {
+  METRO_SECTIONS.push({
+    filename: `metro-card-${item.id}-light.svg`,
+    url: `https://www.gitskins.com/api/section/metro-card?username=ardianryan&i=${item.id}&r=${item.repo}&mode=light&v=` + new Date().toISOString().slice(0, 10),
+  });
+  METRO_SECTIONS.push({
+    filename: `metro-card-${item.id}-dark.svg`,
+    url: `https://www.gitskins.com/api/section/metro-card?username=ardianryan&i=${item.id}&r=${item.repo}&mode=dark&v=` + new Date().toISOString().slice(0, 10),
+  });
+}
 
 function cleanSvg(svgText) {
   let cleaned = svgText;
@@ -63,22 +80,16 @@ function cleanSvg(svgText) {
     ""
   );
 
-  // 3. Clean "styled by GitSkins" subtitle in stats to clean subtitle
-  cleaned = cleaned.replace(
-    /styled by GitSkins/gi,
-    "· live profile telemetry"
-  );
-
   return cleaned;
 }
 
 async function run() {
-  console.log("Generating clean profile SVGs...");
+  console.log("Generating clean Commit Metro SVGs for @ardianryan...");
 
-  for (const item of SECTIONS) {
+  for (const item of METRO_SECTIONS) {
     const destPath = path.join(outputDir, item.filename);
     try {
-      console.log(`Fetching ${item.filename} from ${item.url.slice(0, 50)}...`);
+      console.log(`Fetching ${item.filename}...`);
       const res = await fetch(item.url, {
         headers: {
           "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
@@ -100,15 +111,13 @@ async function run() {
       console.log(`✓ Saved ${item.filename} (${cleaned.length} bytes, paywall stripped)`);
     } catch (err) {
       console.error(`✗ Error processing ${item.filename}:`, err.message);
-      if (!fs.existsSync(destPath)) {
-        console.warn(`No existing fallback found for ${item.filename}`);
-      } else {
-        console.log(`Kept existing ${item.filename}`);
+      if (fs.existsSync(destPath)) {
+        console.log(`  (Kept existing cached ${item.filename})`);
       }
     }
   }
 
-  console.log("All profile assets updated successfully!");
+  console.log("All Commit Metro assets updated successfully!");
 }
 
 run();

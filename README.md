@@ -1,70 +1,44 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/hero-light.svg" />
-    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/hero-dark.svg" width="100%" alt="Animated profile hero for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-map-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-map-dark.svg" width="100%" alt="Ryan Ardian's repositories as a metro map, one line per language" />
   </picture>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/wordmark.svg" width="100%" alt="Animated 3D wordmark for Ardian Ryan" />
-</p>
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=ardianryan&label=Profile%20Views&color=F38020&style=flat-square"/>
-  <img src="https://img.shields.io/github/followers/ardianryan?label=Followers&style=flat-square&color=F38020"/>
-</p>
-
----
-
-## 🌐 About Me
-
-* 💼 IT Technician & Network Engineer at **PPTI**
-* 🌍 Main Website: [ardianryan.com](https://ardianryan.com)
-* 🛠️ Dev Site: [ppti.me](https://ppti.me)
-* 📧 Official Email: [inisaya@ardianryan.com](mailto:inisaya@ardianryan.com)
-
----
-
-## 📊 Statistics & Language Summary
-
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stack-light.svg" />
-    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stack-dark.svg" width="100%" alt="Technology stack for Ardian Ryan" />
-  </picture>
+  <sub>🚇 Every line is a language I write; every stop is one of my projects.</sub>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stats-light.svg" />
-    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stats-dark.svg" width="100%" alt="GitHub activity stats for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-about-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-about-dark.svg" width="100%" alt="About Ryan Ardian: Building Scalable Apps via Vibe Coding" />
   </picture>
 </p>
 
 <p align="center">
-  <a href="https://git.io/streak-stats">
-    <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/output/profile-streak-light.svg" />
-      <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/output/profile-streak-dark.svg" alt="GitHub Streak" width="60%" />
-    </picture>
-  </a>
+  <a href="https://github.com/ardianryan/Jalasmara-The-Game"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-0-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-0-dark.svg" width="49%" alt="Jalasmara-The-Game" /></picture></a> <a href="https://github.com/ardianryan/qbiz-qrisdinamis"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-1-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-1-dark.svg" width="49%" alt="qbiz-qrisdinamis" /></picture></a>
 </p>
-
----
-
-## 🎯 Current Focus
+<p align="center">
+  <a href="https://github.com/ardianryan/MikroTik-Skill"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-2-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-2-dark.svg" width="49%" alt="MikroTik-Skill" /></picture></a> <a href="https://github.com/ardianryan/pemilu-ppts"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-3-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-3-dark.svg" width="49%" alt="pemilu-ppts" /></picture></a>
+</p>
+<p align="center">
+  <a href="https://github.com/ardianryan/papermc-skill"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-4-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-4-dark.svg" width="49%" alt="papermc-skill" /></picture></a> <a href="https://github.com/ardianryan/eyd-v"><picture><source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-5-light.svg" /><img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-card-5-dark.svg" width="49%" alt="eyd-v" /></picture></a>
+</p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/highlights-light.svg" />
-    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/highlights-dark.svg" width="100%" alt="Current focus areas for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-stack-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-stack-dark.svg" width="100%" alt="Languages & Metro Lines: Java, JavaScript, PHP, TypeScript, Python" />
   </picture>
 </p>
 
-
----
-
-## 🐍 A Profile That Moves
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-log-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-log-dark.svg" width="100%" alt="The last 26 weeks of contributions, the streak and the year" />
+  </picture>
+</p>
 
 <p align="center">
   <picture>
@@ -74,49 +48,9 @@
   </picture>
 </p>
 
----
-
-## 💻 Tech Stack & Tools
-
-**Networking & Hardware** 🔌
-<br>
-![MikroTik](https://img.shields.io/badge/MikroTik-293239?style=flat-square&logo=mikrotik&logoColor=white)
-![RouterOS](https://img.shields.io/badge/RouterOS-293239?style=flat-square&logo=mikrotik&logoColor=white)
-![Cisco](https://img.shields.io/badge/Cisco-1BA0D7?style=flat-square&logo=cisco&logoColor=white)
-![Ubiquiti](https://img.shields.io/badge/Ubiquiti-0559C9?style=flat-square&logo=ubiquiti&logoColor=white)
-![TP-Link](https://img.shields.io/badge/TP--Link-4ABDD1?style=flat-square&logo=tp-link&logoColor=white)
-![pfSense](https://img.shields.io/badge/pfSense-212121?style=flat-square&logo=pfsense&logoColor=white)
-![OpenWrt](https://img.shields.io/badge/OpenWrt-00B5E2?style=flat-square&logo=openwrt&logoColor=white)
-![Wireshark](https://img.shields.io/badge/Wireshark-1679A7?style=flat-square&logo=wireshark&logoColor=white)
-![VPN](https://img.shields.io/badge/VPN%20%2F%20WireGuard-88171A?style=flat-square&logo=wireguard&logoColor=white)
-![ESP32](https://img.shields.io/badge/ESP32-E7352C?style=flat-square&logo=espressif&logoColor=white)
-
-**Programming Languages & Databases**
-<br>
-![PHP](https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Bash](https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white)
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=flat-square&logo=mariadb&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white)
-
-**Frameworks, Tools & OS**
-<br>
-![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=flat-square&logo=node.js&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-E95420?style=flat-square&logo=ubuntu&logoColor=white)
-![Debian](https://img.shields.io/badge/Debian-A81D33?style=flat-square&logo=debian&logoColor=white)
-![Windows](https://img.shields.io/badge/Windows-0078D6?style=flat-square&logo=windows&logoColor=white)
-![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)
-
----
-
-## 🚀 Featured Projects
-
-> These projects are actively maintained — some are private repos, but listed here to showcase my work.
+<details>
+  <summary><strong>🏫 Enterprise & School Systems (Private Highlights)</strong></summary>
+  <br/>
 
 <table>
   <tr>
@@ -159,19 +93,6 @@
       <p><strong>Status:</strong> 🔒 Private · Active Development</p>
     </td>
     <td width="50%" valign="top">
-      <h3>📊 ScholarGate CMS</h3>
-      <p>A content management system for student academic achievements and scholarship data. Provides structured data entry, reporting, and review workflows for school administration staff.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Laravel-FF2D20?style=flat-square&logo=laravel&logoColor=white"/>
-        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB"/>
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white"/>
-        <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"/>
-      </p>
-      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
       <h3>📋 SIEKSA V3 — School Extracurricular System</h3>
       <p>A web-based extracurricular management platform for schools — handles member management, attendance journals, achievement tracking, and student performance scoring. Integrates with ScholarGate SSO and supports external API for third-party systems.</p>
       <p>
@@ -183,24 +104,12 @@
       </p>
       <p><strong>Status:</strong> 🔒 Private · Active Development</p>
     </td>
-    <td width="50%" valign="top">
-      <h3>🌍 MikroTik Network Projects</h3>
-      <p>A collection of MikroTik RouterOS scripts, configurations, and automation tools. Covers VLAN management, QoS policies, dynamic routing, VPN setup, and Winbox automation scripts.</p>
-      <p>
-        <img src="https://img.shields.io/badge/MikroTik-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
-        <img src="https://img.shields.io/badge/RouterOS-293239?style=flat-square&logo=mikrotik&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Bash-4EAA25?style=flat-square&logo=gnu-bash&logoColor=white"/>
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white"/>
-      </p>
-      <p><strong>Status:</strong> 🔒 Private · Scripts Collection</p>
-    </td>
   </tr>
 </table>
 
+</details>
+
 ---
-
-## 🌐 Let's Connect
-
 
 <div align="center">
 
@@ -211,11 +120,11 @@
 [![TikTok](https://img.shields.io/badge/TikTok-ardianryan-000000?style=for-the-badge&logo=tiktok&logoColor=white)](https://tiktok.com/@ardianryan)
 [![Email](https://img.shields.io/badge/Email-inisaya@ardianryan.com-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:inisaya@ardianryan.com)
 
-</div>
+<br/>
 
----
+<sub>Commit Metro · every line is a language, every stop a project · engineered by <a href="https://github.com/ardianryan">@ardianryan</a></sub>
 
-<div align="center">
+<br/>
 
 **"The network is the computer."** – John Gage
 
