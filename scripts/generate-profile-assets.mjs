@@ -51,6 +51,14 @@ const METRO_SECTIONS = [
     filename: "metro-log-dark.svg",
     url: "https://www.gitskins.com/api/section/metro-log?username=ardianryan&mode=dark&v=" + new Date().toISOString().slice(0, 10),
   },
+  {
+    filename: "metro-streak-dark.svg",
+    url: "https://streak-stats.demolab.com?user=ardianryan&background=11161D&border=262C36&border_radius=16&ring=B07219&fire=B07219&currStreakNum=F0F6FC&sideNums=F0F6FC&currStreakLabel=B07219&sideLabels=9198A1&dates=9198A1",
+  },
+  {
+    filename: "metro-streak-light.svg",
+    url: "https://streak-stats.demolab.com?user=ardianryan&background=F6F8FA&border=D0D7DE&border_radius=16&ring=B07219&fire=B07219&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=B07219&sideLabels=656D76&dates=656D76",
+  },
 ];
 
 // Add card items for each repo in light and dark mode

@@ -48,8 +48,17 @@
   </picture>
 </p>
 
+<p align="center">
+  <a href="https://git.io/streak-stats">
+    <picture>
+      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-streak-light.svg" />
+      <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-streak-dark.svg" alt="GitHub Streak" width="55%" />
+    </picture>
+  </a>
+</p>
+
 <details>
-  <summary><strong>🏫 Enterprise & School Systems (Private Highlights)</strong></summary>
+  <summary><strong>🏫 Enterprise & School Systems (Live Deployments & Architecture)</strong></summary>
   <br/>
 
 <table>
@@ -64,7 +73,7 @@
         <img src="https://img.shields.io/badge/TailwindCSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white"/>
         <img src="https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
+      <p><strong>Status:</strong> 🌐 Live at <a href="https://akas.smage.my.id">akas.smage.my.id</a></p>
     </td>
     <td width="50%" valign="top">
       <h3>🍢 Satenya Mama Loesye — POS & Management System</h3>
@@ -90,7 +99,7 @@
         <img src="https://img.shields.io/badge/Cloudflare_R2-F38020?style=flat-square&logo=cloudflare&logoColor=white"/>
         <img src="https://img.shields.io/badge/OAuth2-4285F4?style=flat-square&logo=google&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
+      <p><strong>Status:</strong> 🌐 Live at <a href="https://portal.sman1gedeg.sch.id">portal.sman1gedeg.sch.id</a></p>
     </td>
     <td width="50%" valign="top">
       <h3>📋 SIEKSA V3 — School Extracurricular System</h3>
@@ -102,7 +111,7 @@
         <img src="https://img.shields.io/badge/PostgreSQL-316192?style=flat-square&logo=postgresql&logoColor=white"/>
         <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white"/>
       </p>
-      <p><strong>Status:</strong> 🔒 Private · Active Development</p>
+      <p><strong>Status:</strong> 🌐 Live at <a href="https://sieksa.smage.my.id">sieksa.smage.my.id</a></p>
     </td>
   </tr>
 </table>

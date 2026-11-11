@@ -31,14 +31,14 @@ jobs:
       - name: Generate streak stats (dark theme)
         uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
-          options: user=${{ github.repository_owner }}&theme=tokyonight&short_numbers=true&date_format=j%2Fn%5B%2FY%5D
+          options: user=${{ github.repository_owner }}&background=11161D&border=262C36&border_radius=16&ring=B07219&fire=B07219&currStreakNum=F0F6FC&sideNums=F0F6FC&currStreakLabel=B07219&sideLabels=9198A1&dates=9198A1&short_numbers=true&date_format=j%2Fn%5B%2FY%5D
           path: dist/profile-streak-dark.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate streak stats (light theme)
         uses: DenverCoder1/github-readme-streak-stats@v1.7.0
         with:
-          options: user=${{ github.repository_owner }}&theme=default&short_numbers=true&date_format=j%2Fn%5B%2FY%5D
+          options: user=${{ github.repository_owner }}&background=F6F8FA&border=D0D7DE&border_radius=16&ring=B07219&fire=B07219&currStreakNum=1F2328&sideNums=1F2328&currStreakLabel=B07219&sideLabels=656D76&dates=656D76&short_numbers=true&date_format=j%2Fn%5B%2FY%5D
           path: dist/profile-streak-light.svg
           token: ${{ secrets.GITHUB_TOKEN }}
 
