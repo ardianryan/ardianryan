@@ -1,12 +1,12 @@
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=light" />
-    <img src="https://www.gitskins.com/api/section/hero?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="Animated profile hero for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/hero-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/hero-dark.svg" width="100%" alt="Animated profile hero for Ardian Ryan" />
   </picture>
 </p>
 
 <p align="center">
-  <img src="https://www.gitskins.com/api/section/wordmark?username=ardianryan&theme=aurora&label=Ardian%20Ryan" width="100%" alt="Animated 3D wordmark for Ardian Ryan" />
+  <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/wordmark.svg" width="100%" alt="Animated 3D wordmark for Ardian Ryan" />
 </p>
 
 <p align="center">
@@ -29,15 +29,15 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=light" />
-    <img src="https://www.gitskins.com/api/section/stack?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="Technology stack for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stack-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stack-dark.svg" width="100%" alt="Technology stack for Ardian Ryan" />
   </picture>
 </p>
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=light" />
-    <img src="https://www.gitskins.com/api/section/stats?username=ardianryan&theme=aurora&mode=dark" width="100%" alt="GitHub activity stats for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stats-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/stats-dark.svg" width="100%" alt="GitHub activity stats for Ardian Ryan" />
   </picture>
 </p>
 
@@ -56,8 +56,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=light&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" />
-    <img src="https://www.gitskins.com/api/section/highlights?username=ardianryan&theme=aurora&mode=dark&items=Network+Engineering::MikroTik+certified%2C+designing+enterprise+network+infrastructure|Web+Development::Building+Laravel+%2B+React+SPA+applications+for+education+sector|Open+Source::Developing+SIEKSA+V3+and+ScholarGate+for+Indonesian+schools" width="100%" alt="Current focus areas for Ardian Ryan" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/highlights-light.svg" />
+    <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/highlights-dark.svg" width="100%" alt="Current focus areas for Ardian Ryan" />
   </picture>
 </p>
 
