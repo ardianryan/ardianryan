@@ -48,15 +48,6 @@
   </picture>
 </p>
 
-<p align="center">
-  <a href="https://git.io/streak-stats">
-    <picture>
-      <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-streak-light.svg" />
-      <img src="https://raw.githubusercontent.com/ardianryan/ardianryan/main/profile-assets/metro-streak-dark.svg" alt="GitHub Streak" width="55%" />
-    </picture>
-  </a>
-</p>
-
 <details>
   <summary><strong>🏫 Enterprise & School Systems (Live Deployments & Architecture)</strong></summary>
   <br/>
